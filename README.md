@@ -11,7 +11,7 @@ The project uses SvelteKit with plain JavaScript and consists of:
 
 The SvelteKit server targets [Node.js](https://nodejs.org/en/) and makes use of [@sveltejs/adapter-node](https://www.npmjs.com/package/@sveltejs/adapter-node).
 
-The project uses JavaScript without type-checking. The code utilizes:
+The code utilizes:
 
 - [ESLint](https://eslint.org/)
 - [Prisma](https://www.prisma.io/) (ORM)
