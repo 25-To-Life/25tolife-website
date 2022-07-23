@@ -1,0 +1,133 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 'users' SQLite model
+model users {
+  id            Int      @id @unique
+  pid           Int      @unique
+  username      String   @unique
+  password      String
+  groups        Int?
+  email         String?
+  country       String?
+  sex           String?
+  eidos_info    Boolean?
+  partners_info Boolean?
+  save_password Boolean?
+  zipcode       String?
+  birthday_date Int?
+  clan_tag      String?
+}
+
+// 'friends' SQLite model
+model friends {
+  id         Int    @id @unique
+  friend_of  Int
+  pid        Int
+  name       String
+  details    Int
+  clan_abbr  String
+  wanna_play Int
+}
+
+// 'stats' SQLite model
+model stats {
+  id                   Int  @id @unique
+  pid                  Int  @unique
+  ranking              Int?
+  law_victories        Int?
+  law_defeats          Int?
+  law_draws            Int?
+  crim_victories       Int?
+  crim_defeats         Int?
+  crim_draws           Int?
+  law_kills            Int?
+  crim_kills           Int?
+  law_deaths           Int?
+  crim_deaths          Int?
+  law_suicides         Int?
+  crim_suicides        Int?
+  law_headshots        Int?
+  crim_headshots       Int?
+  stat16               Int?
+  stat17               Int?
+  stat18               Int?
+  stat19               Int?
+  law_hostages_killed  Int?
+  crim_hostages_killed Int?
+  law_apprehensions    Int?
+  crim_apprehended     Int?
+  law_shots_fired      Int?
+  crim_shots_fired     Int?
+  law_shots_hit        Int?
+  crim_shots_hit       Int?
+  law_time             Int?
+  crim_time            Int?
+  crim_goods           Int?
+  law_evidence         Int?
+  cmn_tags             Int?
+  law_kills_melee      Int?
+  law_kills_grenade    Int?
+  law_kills_nonauto    Int?
+  law_kills_mp         Int?
+  law_kills_ar         Int?
+  law_kills_shotgun    Int?
+  crim_kills_melee     Int?
+  crim_kills_grenade   Int?
+  crim_kills_nonauto   Int?
+  crim_kills_mp        Int?
+  crim_kills_ar        Int?
+  crim_kills_shotgun   Int?
+  law_hdeaths_melee    Int?
+  law_hdeaths_grenade  Int?
+  law_hdeaths_nonauto  Int?
+  law_hdeaths_mp       Int?
+  law_hdeaths_ar       Int?
+  law_hdeaths_shotgun  Int?
+  crim_hdeaths_melee   Int?
+  crim_hdeaths_grenade Int?
+  crim_hdeaths_nonauto Int?
+  crim_hdeaths_mp      Int?
+  crim_hdeaths_ar      Int?
+  crim_hdeaths_shotgun Int?
+  law_deaths_melee     Int?
+  law_deaths_grenade   Int?
+  law_deaths_nonauto   Int?
+  law_deaths_mp        Int?
+  law_deaths_ar        Int?
+  law_deaths_shotgun   Int?
+  crim_deaths_melee    Int?
+  crim_deaths_grenade  Int?
+  crim_deaths_nonauto  Int?
+  crim_deaths_mp       Int?
+  crim_deaths_ar       Int?
+  crim_deaths_shotgun  Int?
+  cmn_tag_mvp          Int?
+  cmn_tag_games        Int?
+  cmn_tag_time         Int?
+  cmn_war_mvp          Int?
+  cmn_war_games        Int?
+  cmn_war_time         Int?
+  cmn_robbery_mvp      Int?
+  cmn_robbery_games    Int?
+  cmn_robbery_time     Int?
+  cmn_raid_mvp         Int?
+  cmn_raid_games       Int?
+  cmn_raid_time        Int?
+  stat81               Int?
+  stat82               Int?
+  stat83               Int?
+  stat84               Int?
+  stat85               Int?
+  stat86               Int?
+  stat87               Int?
+}
