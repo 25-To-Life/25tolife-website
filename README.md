@@ -1,4 +1,3 @@
-webhook test
 # Overview
 
 This is the official website for *25 To Life: Classic* built with [SvelteKit](https://kit.svelte.dev/).
