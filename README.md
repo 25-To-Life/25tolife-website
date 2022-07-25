@@ -31,7 +31,7 @@ node -v
 Create `.env` file with `DATABASE_URL` variable containing SQLite connection string in [Prisma's format](https://www.prisma.io/docs/concepts/database-connectors/sqlite#example):
 
 ```
-DATABASE_URL=<relative or absolute sqlite file path>
+DATABASE_URL="file:<relative or absolute sqlite file path>"
 ```
 
 ## Installation
@@ -42,10 +42,16 @@ DATABASE_URL=<relative or absolute sqlite file path>
 npm install
 ```
 
-2. [Generate Prisma client](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/generating-prisma-client):
+2. [Generate Prisma client](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/generating-prisma-client). Generation is needed anytime there's a change in `prisma/schema.prisma`.
 
 ```
 npx prisma generate
+```
+
+3. Compile [SMUI SCSS themes](https://sveltematerialui.com/THEMING.md) (`src/theme`). Recompilation is needed anytime there's a change in `.scss` files.
+
+```
+npm run prepare
 ```
 
 ## Running

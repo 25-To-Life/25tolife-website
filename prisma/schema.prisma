@@ -26,11 +26,14 @@ model users {
   zipcode       String?
   birthday_date Int?
   clan_tag      String?
+  stats         stats?
+  friends       friends[]
 }
 
 // 'friends' SQLite model
 model friends {
-  id         Int    @id @unique
+  id         Int      @id @unique
+  user       users    @relation(fields: [friend_of], references: [pid])
   friend_of  Int
   pid        Int
   name       String
@@ -41,8 +44,9 @@ model friends {
 
 // 'stats' SQLite model
 model stats {
-  id                   Int  @id @unique
-  pid                  Int  @unique
+  id                   Int    @id @unique
+  user                 users  @relation(fields: [pid], references: [pid])
+  pid                  Int    @unique
   ranking              Int?
   law_victories        Int?
   law_defeats          Int?

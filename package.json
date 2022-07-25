@@ -6,10 +6,14 @@
 		"build": "vite build",
 		"package": "svelte-kit package",
 		"preview": "vite preview",
-		"prepare": "svelte-kit sync",
-		"lint": "eslint ."
+		"prepare": "svelte-kit sync && npm run smui-theme-light && npm run smui-theme-dark",
+		"lint": "eslint .",
+		"smui-theme-light": "smui-theme compile static/smui.css -i src/theme",
+		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark"
 	},
 	"devDependencies": {
+		"@smui/data-table": "^6.0.0",
+		"@smui/icon-button": "^6.0.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-node": "^1.0.0-next.83",
 		"@sveltejs/kit": "next",
@@ -18,6 +22,7 @@
 		"eslint-plugin-svelte3": "^4.0.0",
 		"postcss": "^8.4.14",
 		"prisma": "^4.1.0",
+		"smui-theme": "^6.0.0",
 		"svelte": "^3.44.0",
 		"svelte-preprocess": "^4.10.7",
 		"tailwindcss": "^3.1.6",

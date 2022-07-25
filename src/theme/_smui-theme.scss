@@ -1,0 +1,40 @@
+@use 'sass:color';
+
+@use '@material/theme/color-palette';
+
+// Svelte Colors!
+@use '@material/theme/index' as theme with (
+  $primary: #ff3e00,
+  $secondary: #676778,
+  $surface: #fff,
+  $background: #fff,
+  $error: color-palette.$red-900
+);
+
+$datatable_headrow_bg: black;
+$datatable_headrow_text: #fff;
+
+html,
+body {
+  background-color: theme.$surface;
+  color: theme.$on-surface;
+}
+
+// DataTable header
+thead > tr > th {
+  background-color: $datatable_headrow_bg !important;
+  color: $datatable_headrow_text !important;
+  text-align: center !important;
+}
+
+// DataTable body
+tbody > tr > td {
+  text-align: center !important;
+}
+
+a {
+  color: #40b3ff;
+}
+a:visited {
+  color: color.scale(#40b3ff, $lightness: -35%);
+}
