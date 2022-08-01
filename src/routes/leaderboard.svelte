@@ -22,7 +22,6 @@
         sortable
         on:SMUIDataTable:sorted={handleSort}
         table$aria-label="User list"
-        style="width: 50%;"
     >
         <Head>
             <Row>

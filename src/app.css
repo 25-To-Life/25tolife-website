@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'NinKid';
+    src: url('/fonts/Nin Kid.ttf');
+}
+
+@font-face {
+    font-family: 'NinKid';
+    font-weight: bold;
+    src: url('/fonts/Nin Kid.ttf');
+}
+
+p {
+    padding-top: 5px;
+}
+
+a.nav-tab {
+    font-family: 'NinKid';
+    font-size: x-large;
+    
+}

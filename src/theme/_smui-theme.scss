@@ -4,7 +4,7 @@
 
 // Svelte Colors!
 @use '@material/theme/index' as theme with (
-  $primary: #ff3e00,
+  $primary: #333,//#ff3e00,
   $secondary: #676778,
   $surface: #fff,
   $background: #fff,
@@ -21,15 +21,50 @@ body {
   color: theme.$on-surface;
 }
 
+// TopAppBar spacing
+header > div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+// TopAppBar logo
+header > div > section > img {
+  margin-top: 1px !important;
+}
+
+// TopAppBar social media icons
+header > div > section > a {
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+}
+
+// TopAppBar tabs
+ul#menu > li > a {
+  margin-left: 16px;
+  color: #c1c1c1;
+
+  &:hover {
+    color: red;
+  }
+}
+
+// DataTable
+.mdc-data-table {
+  width: 50%;
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+  border-width: 0px !important;
+}
+
 // DataTable header
-thead > tr > th {
+.mdc-data-table__header-row > th {
   background-color: $datatable_headrow_bg !important;
   color: $datatable_headrow_text !important;
   text-align: center !important;
 }
 
 // DataTable body
-tbody > tr > td {
+.mdc-data-table__cell {
   text-align: center !important;
 }
 
