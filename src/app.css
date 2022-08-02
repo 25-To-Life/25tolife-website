@@ -8,17 +8,20 @@
 }
 
 @font-face {
-    font-family: 'NinKid';
-    font-weight: bold;
-    src: url('/fonts/Nin Kid.ttf');
+    font-family: 'UbuntuLight';
+    src: url('/fonts/Ubuntu-Light.ttf');
 }
 
 p {
     padding-top: 5px;
 }
 
-a.nav-tab {
+p > a:hover {
+    color: #3f3f46;
+}
+
+.fancy-font {
     font-family: 'NinKid';
     font-size: x-large;
-    
+    color: #c1c1c1;
 }

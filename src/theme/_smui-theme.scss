@@ -12,8 +12,9 @@
 );
 
 // Customs
-$datatable_headrow_bg: black;
-$datatable_headrow_text: #fff;
+$primary_bg: #333;
+$secondary_bg: #3f3f46;
+$text_color: #c1c1c1;
 
 html,
 body {
@@ -22,24 +23,24 @@ body {
 }
 
 // TopAppBar spacing
-header > div {
+.mdc-top-app-bar__row {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
 // TopAppBar logo
-header > div > section > img {
+.mdc-top-app-bar__section > img {
   margin-top: 1px !important;
 }
 
 // TopAppBar social media icons
-header > div > section > a {
+.mdc-top-app-bar__section > a {
   margin-left: 16px !important;
   margin-right: 16px !important;
 }
 
 // TopAppBar tabs
-ul#menu > li > a {
+.mdc-top-app-bar__section > ul > li > a {
   margin-left: 16px;
   color: #c1c1c1;
 
@@ -50,27 +51,48 @@ ul#menu > li > a {
 
 // DataTable
 .mdc-data-table {
-  width: 50%;
-  margin-top: 7rem;
   margin-bottom: 2rem;
   border-width: 0px !important;
 }
 
 // DataTable header
 .mdc-data-table__header-row > th {
-  background-color: $datatable_headrow_bg !important;
-  color: $datatable_headrow_text !important;
+  background-color: $primary_bg !important;
   text-align: center !important;
 }
 
-// DataTable body
+// DataTable header text
+.mdc-data-table__header-cell-wrapper, .mdc-data-table__header-cell {
+  font-family: 'NinKid' !important;
+  font-size: x-large !important;
+  color: $text_color !important;
+  padding-bottom: 4px !important;
+  min-width: 100px !important;
+}
+
+// DataTable data row
+.mdc-data-table__row:hover {
+    filter: brightness(150%);
+}
+
+// DataTable data cells
+.mdc-data-table__cell, .mdc-data-table__cell--numeric {
+  font-family: 'NinKid' !important;
+  font-size: large !important;
+  color: $text_color !important;
+  background-color: $secondary_bg;
+  text-align: center !important;
+  align-items: center !important;
+}
+
+// DataTable non-numeric data cells (font digit padding bailout)
 .mdc-data-table__cell {
-  text-align: center !important;
+  padding-bottom: 5px !important;
+  padding-top: 5px !important;
 }
 
-a {
-  color: #40b3ff;
-}
-a:visited {
-  color: color.scale(#40b3ff, $lightness: -35%);
+// DataTable numeric data cells (font digit padding bailout)
+.mdc-data-table__cell--numeric {
+  padding-bottom: 9px !important;
+  padding-top: 5px !important;
 }

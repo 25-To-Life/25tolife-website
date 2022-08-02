@@ -15,15 +15,7 @@ model users {
   id            Int      @id @unique
   pid           Int      @unique
   username      String   @unique
-  password      String
-  groups        Int?
-  email         String?
   country       String?
-  sex           String?
-  eidos_info    Boolean?
-  partners_info Boolean?
-  save_password Boolean?
-  zipcode       String?
   birthday_date Int?
   clan_tag      String?
   stats         stats?

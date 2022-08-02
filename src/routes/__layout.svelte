@@ -28,14 +28,14 @@
 					<a href="/" 
 						on:click={() => menuSelect = 1}
 						class:selected="{menuSelect === 1}"
-                        class="nav-tab"
+                        class="fancy-font"
 					>HOME</a>
 				</li>
 				<li class="inline">
 					<a href="/leaderboard" 
 						on:click={() => menuSelect = 2}
 						class:selected="{menuSelect === 2}"
-                        class="nav-tab"
+                        class="fancy-font"
 					>LEADERBOARD</a>
 				</li>
 			</ul>
@@ -44,12 +44,12 @@
             <div style="display: flex; flex-direction: flex-row;  align-items: center; margin-right: 50px;">
                 <Switch bind:checked={darkMode} color="primary" icons={false} />
                 {#if !darkMode}
-                    <img src='src/lib/assets/pistol_icon.png'
+                    <img src='src/lib/assets/icons/pistol_icon.png'
                         alt='Pistol icon'
                         class="w-6 h-6"
                     >
                 {:else}
-                    <img src='src/lib/assets/badge_icon.png'
+                    <img src='src/lib/assets/icons/badge_icon.png'
                         alt='Badge icon'
                         class="w-6 h-6"
                     >
@@ -86,7 +86,7 @@
                 class="w-full h-auto"
             >
         </a>
-        <div class="flex flex-col p-6">
+        <div class="flex flex-col p-6 font-body">
             <h1>© Phoenix Network 2022</h1>
             <p>Phoenix Network Ltd. is not affiliated with or endorsed by Eidos Interactive, Avalanche Software, Square Enix, Embracer Group or any of their subsidiaries or affiliates.</p>
             <p>All product and company names are the registered trademarks of their original owners.</p>

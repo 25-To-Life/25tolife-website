@@ -4,8 +4,11 @@ const prisma = new PrismaClient()
 
 export async function GET() {
     var result = await prisma.users.findMany({
+        orderBy: {
+            stats: {ranking: 'desc'}
+        },
         include: {
-            stats: false,
+            stats: true,
             friends: false
         }
     });
@@ -13,7 +16,7 @@ export async function GET() {
     return {
         status: 200,
         body: {
-            test: result
+            players: result
         }
     }
 }

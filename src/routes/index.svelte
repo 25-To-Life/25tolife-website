@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-    <title>25 To Life | Classic</title>
+    <title>Home | 25 To Life</title>
 </svelte:head>
 
 <div class="bg-gradient-to-br from-[#263065] via-violet-500 to-pink-300">

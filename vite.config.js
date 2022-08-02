@@ -2,7 +2,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit()]
+	plugins: [sveltekit()],
+	// Vite's port
+	server: {
+		port: 7878
+	}
 };
 
 export default config;
