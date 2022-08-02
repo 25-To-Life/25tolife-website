@@ -9,7 +9,7 @@ The project uses SvelteKit with plain JavaScript and consists of:
 
 # Additional dependencies
 
-The SvelteKit server targets [Node.js](https://nodejs.org/en/) and makes use of [@sveltejs/adapter-node](https://www.npmjs.com/package/@sveltejs/adapter-node).
+The SvelteKit's [Vite](https://vitejs.dev/) server targets [Node.js](https://nodejs.org/en/) and makes use of [@sveltejs/adapter-node](https://www.npmjs.com/package/@sveltejs/adapter-node).
 
 The code utilizes:
 
