@@ -19,9 +19,3 @@ p {
 p > a:hover {
     color: #3f3f46;
 }
-
-.fancy-font {
-    font-family: 'NinKid';
-    font-size: x-large;
-    color: #c1c1c1;
-}

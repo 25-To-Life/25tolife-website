@@ -6,6 +6,9 @@ const config = {
 	// Vite's port
 	server: {
 		port: 7878
+	},
+	optimizeDeps: {
+		include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
 	}
 };
 

@@ -15,66 +15,68 @@
     let darkMode = false;
 </script>
 
-<!--Sticky nav bar-->
-<TopAppBar variant="fixed">
-	<Row>
-		<Section>
-			<img src='src/lib/assets/25 logo.png'
-				alt='25 To Life logo'
-				class="w-1/12 h-1/12 mx-4"
-			>
-			<ul id="menu">
-				<li class="inline">
-					<a href="/" 
-						on:click={() => menuSelect = 1}
-						class:selected="{menuSelect === 1}"
-                        class="fancy-font"
-					>HOME</a>
-				</li>
-				<li class="inline">
-					<a href="/leaderboard" 
-						on:click={() => menuSelect = 2}
-						class:selected="{menuSelect === 2}"
-                        class="fancy-font"
-					>LEADERBOARD</a>
-				</li>
-			</ul>
-		</Section>
-		<Section align="end" toolbar>
-            <div style="display: flex; flex-direction: flex-row;  align-items: center; margin-right: 50px;">
-                <Switch bind:checked={darkMode} color="primary" icons={false} />
-                {#if !darkMode}
-                    <img src='src/lib/assets/icons/pistol_icon.png'
-                        alt='Pistol icon'
-                        class="w-6 h-6"
+<div class="bg-gradient-to-br from-[#263065] via-violet-500 to-pink-300 font-body">
+    <!--Sticky nav bar-->
+    <TopAppBar variant="fixed">
+        <Row>
+            <Section>
+                <img src='src/lib/assets/25 logo.png'
+                    alt='25 To Life logo'
+                    class="w-1/12 h-1/12 mx-4"
+                >
+                <ul id="menu">
+                    <li class="inline">
+                        <a href="/" 
+                            on:click={() => menuSelect = 1}
+                            class:selected="{menuSelect === 1}"
+                            class="font-header text-2xl"
+                        >HOME</a>
+                    </li>
+                    <li class="inline">
+                        <a href="/leaderboard" 
+                            on:click={() => menuSelect = 2}
+                            class:selected="{menuSelect === 2}"
+                            class="font-header text-2xl"
+                        >LEADERBOARD</a>
+                    </li>
+                </ul>
+            </Section>
+            <Section align="end" toolbar>
+                <div style="display: flex; flex-direction: flex-row;  align-items: center; margin-right: 50px;">
+                    <Switch bind:checked={darkMode} color="primary" icons={false} />
+                    {#if !darkMode}
+                        <img src='src/lib/assets/icons/pistol_icon.png'
+                            alt='Pistol icon'
+                            class="w-6 h-6"
+                        >
+                    {:else}
+                        <img src='src/lib/assets/icons/badge_icon.png'
+                            alt='Badge icon'
+                            class="w-6 h-6"
+                        >
+                    {/if}
+                </div>
+                
+                <a href="https://discord.gg/eKKhz4sKRS" class="mr-3">
+                    <img src='src/lib/assets/Discord-Logo-White.png'
+                        alt='25 To Life: Classic Discord'
+                        class="w-full h-auto"
                     >
-                {:else}
-                    <img src='src/lib/assets/icons/badge_icon.png'
-                        alt='Badge icon'
-                        class="w-6 h-6"
+                </a>
+                <a href="https://github.com/michal-kapala/25tolife-website" class="mr-3">
+                    <img src='src/lib/assets/GitHub-Mark-Light-32px.png'
+                        alt='25 To Life: Classic GitHub'
+                        class="w-full h-auto"
                     >
-                {/if}
-            </div>
-            
-			<a href="https://discord.gg/eKKhz4sKRS" class="mr-3">
-				<img src='src/lib/assets/Discord-Logo-White.png'
-					alt='25 To Life: Classic Discord'
-                    class="w-full h-auto"
-				>
-			</a>
-			<a href="https://github.com/michal-kapala/25tolife-website" class="mr-3">
-				<img src='src/lib/assets/GitHub-Mark-Light-32px.png'
-					alt='25 To Life: Classic GitHub'
-                    class="w-full h-auto"
-				>
-			</a>
-		</Section>
-	</Row>
-</TopAppBar>
+                </a>
+            </Section>
+        </Row>
+    </TopAppBar>
 
-<!--Page content-->
-<div class="bg-gradient-to-br from-[#263065] via-violet-500 to-pink-300">
-    <slot />
+    <!--Page content-->
+    <div class="font-body">
+        <slot />
+    </div>
 </div>
 
 <!--Footer-->
