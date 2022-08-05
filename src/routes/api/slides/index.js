@@ -12,13 +12,13 @@ var slides = [
         // image's alt attribute
         alt: '25 To Life wallpaper',
         // image's on:click url
-        url: '',
+        url: 'https://discord.gg/eKKhz4sKRS',
         // slide's title
-        title: 'This is a nice wallpaper',
+        title: 'What up homie',
         // slide's regular text
         paragraphs: [
-            'It appeals to every OGs seeing thanks to its unique style and blablahblah',
-            'Now go play and have fun!',
+            'Currently we\'re preparing our services for public beta testing.',
+            'Join our community Discord for latest updates!',
         ],
     },
     {
@@ -33,6 +33,22 @@ var slides = [
         // slide's regular text
         paragraphs: [
             'You can track our progress in detail on Discord, but here\'s a short developer test video!',
+        ],
+    },
+    {
+        // image file name from src/lib/assets/carousel
+        image: 'bankheist_wallpaper.png',
+        // image's alt attribute
+        alt: '25 To Life Bank Heist wallpaper',
+        // image's on:click url
+        url: 'https://paypal.me/lifecoder',
+        // slide's title
+        title: 'Donations',
+        // slide's regular text
+        paragraphs: [
+            'Phoenix Network is a non-profit organization. We live online off personal funds and donations.',
+            'If you want to support our work, here\'s the official PayPal.Me link.',
+            'Thanks to all of our supporters!',
         ],
     },
     {

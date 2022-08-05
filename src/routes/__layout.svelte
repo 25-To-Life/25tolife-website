@@ -33,9 +33,16 @@
                         >HOME</a>
                     </li>
                     <li class="inline">
-                        <a href="/leaderboard" 
+                        <a href="/download" 
                             on:click={() => menuSelect = 2}
                             class:selected="{menuSelect === 2}"
+                            class="font-header text-lg sm:text-2xl"
+                        >DOWNLOAD</a>
+                    </li>
+                    <li class="inline">
+                        <a href="/leaderboard" 
+                            on:click={() => menuSelect = 3}
+                            class:selected="{menuSelect === 3}"
                             class="font-header text:lg sm:text-2xl"
                         >LEADERBOARD</a>
                     </li>
