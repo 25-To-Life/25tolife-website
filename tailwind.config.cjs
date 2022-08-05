@@ -6,7 +6,7 @@ module.exports = {
     fontFamily: {
       'body': ['Ubuntu', 'UbuntuLight'],
       'header': ['NinKid'],
-    }
+    },
   },
   plugins: [],
 }

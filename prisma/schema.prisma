@@ -34,6 +34,11 @@ model friends {
   wanna_play Int
 }
 
+// 'message' SQLite model
+model message {
+  msg String @unique
+}
+
 // 'stats' SQLite model
 model stats {
   id                   Int    @id @unique

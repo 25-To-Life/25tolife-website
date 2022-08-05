@@ -24,13 +24,16 @@
         <!--Paragraphs-->
         <div class="flex flex-col justify-center items-center mt-[6rem] mb-6">
             <h1 class="font-header text-[#c1c1c1] text-6xl mt-2">RANKING SYSTEM</h1>
-            <p class="font-body text-[#c1c1c1] text-2xl mt-6">Win games to climb. Don't lose. And always use the radios.</p>
-            <p class="font-body text-[#c1c1c1] text-2xl">We keep it OG. The ranking system is back unchanged.</p>
-            <p class="font-body text-[#c1c1c1] text-2xl">You can read on the ELO rating calculation specifics
-                <a href="https://web.archive.org/web/20071223122600/http://stats.25tolife.com/faq/#qprating"><b>here</b>.</a>
+            <p class="font-body text-[#c1c1c1] text-2xl mt-8">Win games to climb. Don't lose. And always use the radios.</p>
+            <p class="font-body text-[#c1c1c1] text-2xl mt-2">We keep it OG. The ranking system is back unchanged.</p>
+            <p class="font-body text-[#c1c1c1] text-2xl mt-2">You can read on the ELO rating calculation specifics
+                <a class="hover:text-[#3f3f46]"
+                    href="https://web.archive.org/web/20071223122600/http://stats.25tolife.com/faq/#qprating">
+                    <b>here</b>.
+                </a>
             </p>
             <h1 class="font-header text-[#c1c1c1] text-6xl mt-6">LEADERBOARD</h1>
-            <p class="font-body text-[#c1c1c1] text-2xl mt-6">The GOATs and OGs. Tryharding nerds. Da winnaz. </p>
+            <p class="font-body text-[#c1c1c1] text-2xl mt-8">The GOATs and OGs. Tryharding nerds. Da winnaz. </p>
         </div>
     
         <!--Table-->

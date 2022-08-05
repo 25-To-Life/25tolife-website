@@ -12,10 +12,13 @@
     src: url('/fonts/Ubuntu-Light.ttf');
 }
 
-p {
-    padding-top: 5px;
+.sc-carousel__pages-window {
+    border-radius: 6px !important ;
+    max-height: 400px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-p > a:hover {
-    color: #3f3f46;
+.sc-carousel-dots__container { 
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
