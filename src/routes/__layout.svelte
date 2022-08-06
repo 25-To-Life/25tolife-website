@@ -33,11 +33,11 @@
                         >HOME</a>
                     </li>
                     <li class="inline">
-                        <a href="/download" 
+                        <a href="/install" 
                             on:click={() => menuSelect = 2}
                             class:selected="{menuSelect === 2}"
                             class="font-header text-lg sm:text-2xl"
-                        >DOWNLOAD</a>
+                        >INSTALL</a>
                     </li>
                     <li class="inline">
                         <a href="/leaderboard" 

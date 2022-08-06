@@ -11,6 +11,11 @@
   $error: color-palette.$red-900
 );
 
+@font-face {
+  font-family: 'UbuntuLight';
+  src: url('/fonts/Ubuntu-Light.ttf');
+}
+
 // Customs
 $primary_bg: #333;
 $secondary_bg: #3f3f46;
@@ -42,7 +47,7 @@ body {
 // TopAppBar tabs
 .mdc-top-app-bar__section > ul > li > a {
   margin-left: 16px;
-  color: #c1c1c1;
+  color: $text_color;
 
   &:hover {
     color: red;
@@ -95,4 +100,33 @@ body {
 .mdc-data-table__cell--numeric {
   padding-bottom: 9px !important;
   padding-top: 5px !important;
+}
+
+// Accordion title and content text
+.smui-accordion__header__title, .smui-paper__content {
+  font-family: 'UbuntuLight' !important;
+  color: $text_color !important;
+}
+
+// Accordion title text - Tailwind's default media breakpoints
+.smui-accordion__header__title {
+  // xs (not in tailwind)
+  @media only screen and (max-width: 639px) {
+    font-size: small !important;
+  }
+
+  // sm
+  @media only screen and (min-width: 640px) {
+    font-size: small !important;
+  }
+  
+  // md
+  @media only screen and (min-width: 768px) {
+    font-size: large !important;
+  }
+
+  // lg
+  @media only screen and (min-width: 1024px) {
+    font-size: larger !important;
+  }
 }

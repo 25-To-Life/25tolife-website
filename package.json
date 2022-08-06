@@ -12,6 +12,7 @@
 		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark"
 	},
 	"devDependencies": {
+		"@smui-extra/accordion": "^6.0.0",
 		"@smui/button": "^6.0.0",
 		"@smui/data-table": "^6.0.0",
 		"@smui/drawer": "^6.0.0",

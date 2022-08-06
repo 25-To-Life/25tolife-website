@@ -72,7 +72,7 @@
     </div>
 
     <!--Download button-->
-    <a href="https://phoenixnetwork.net" class="my-10 md:my-6">
+    <a href="/install" class="my-10 md:my-6">
         <button class="font-body text-[#c1c1c1] text-2xl bg-orange-600 hover:bg-orange-500 px-4 pb-2 pt-2 rounded-md shadow-md">
             Install now
         </button>
@@ -100,8 +100,8 @@
             </div>
             <div class="flex flex-col w-1/2 mx-10">
                 <h2 class="font-header text-lg sm:text-xl md:text-3xl lg:text-6xl xl:text-6xl">Download</h2>
-                <p class="font-body text-justify text-sm sm:text-lg md:text-xl lg:text-2xl mt-8">Register at Phoenix Network and download the launcher to install the online version of the game.</p>
-                <p class="font-body text-justify text-sm sm:text-lg md:text-xl lg:text-2xl mt-2">Before you do, make sure to read our <a href="/download" class="hover:text-[#3f3f46]"><b>installation guide</b>.</a></p>
+                <p class="font-body text-justify text-sm sm:text-lg md:text-xl lg:text-2xl mt-8">Download the Phoenix Network launcher, then register and log into your Phoenix account to install the online version of the game.</p>
+                <p class="font-body text-justify text-sm sm:text-lg md:text-xl lg:text-2xl mt-2">Before you do, make sure to read our <a href="/install" class="hover:text-[#3f3f46]"><b>installation guide</b>.</a></p>
                 
             </div>
         </div>

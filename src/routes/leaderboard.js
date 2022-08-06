@@ -8,7 +8,17 @@ export async function GET() {
             stats: {ranking: 'desc'}
         },
         include: {
-            stats: true,
+            stats: {
+                select: {
+                    ranking: true,
+                    law_victories: true,
+                    crim_victories: true,
+                    law_defeats: true,
+                    crim_defeats: true,
+                    law_time: true,
+                    crim_time: true,
+                }
+            },
             friends: false
         }
     });
