@@ -24,27 +24,30 @@
                     alt='25 To Life logo'
                     class="w-1/4 h-auto lg:w-1/5 xl:w-1/6 px-0 sm:px-4"
                 >
-                <ul id="menu">
+                <ul id="menu" class="font-header text-sm sm:text-xl md:text-2xl">
                     <li class="inline">
                         <a href="/" 
                             on:click={() => menuSelect = 1}
                             class:selected="{menuSelect === 1}"
-                            class="font-header text-lg sm:text-2xl"
                         >HOME</a>
                     </li>
                     <li class="inline">
                         <a href="/install" 
                             on:click={() => menuSelect = 2}
                             class:selected="{menuSelect === 2}"
-                            class="font-header text-lg sm:text-2xl"
                         >INSTALL</a>
                     </li>
                     <li class="inline">
                         <a href="/leaderboard" 
                             on:click={() => menuSelect = 3}
                             class:selected="{menuSelect === 3}"
-                            class="font-header text:lg sm:text-2xl"
                         >LEADERBOARD</a>
+                    </li>
+                    <li class="inline">
+                        <a href="/faq" 
+                            on:click={() => menuSelect = 4}
+                            class:selected="{menuSelect === 4}"
+                        >FAQ</a>
                     </li>
                 </ul>
             </Section>
@@ -103,6 +106,18 @@
             <p class="pt-1">Phoenix Network Ltd. is not affiliated with or endorsed by Eidos Interactive, Avalanche Software, Square Enix, Embracer Group or any of their subsidiaries or affiliates.</p>
             <p class="pt-1">All product and company names are the registered trademarks of their original owners.</p>
             <p class="pt-1">The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holders.</p>
+        </div>
+        <div class="flex flex-col justify-center items-center text-center font-body text-xs sm:text-base ml-4 md:ml-5">
+            <a href="https://phoenixnetwork.net/terms" class="hover:text-orange-400">
+                <h2>
+                    <b>Terms of Use</b>
+                </h2>
+            </a>
+            <a href="/faq" class="hover:text-orange-400">
+                <h2>
+                    <b>FAQ</b>
+                </h2>
+            </a>
         </div>
     </div>
     

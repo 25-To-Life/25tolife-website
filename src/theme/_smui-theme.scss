@@ -28,6 +28,21 @@ body {
 }
 
 // TopAppBar spacing
+.mdc-top-app-bar {
+  // xs (not in tailwind)
+  @media only screen and (max-width: 639px) {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  // sm
+  @media only screen and (min-width: 640px) {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+// TopAppBar spacing
 .mdc-top-app-bar__row {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -51,6 +66,27 @@ body {
 
   &:hover {
     color: red;
+  }
+}
+// TopAppBar menu containier
+#menu {
+  // xs (not in tailwind)
+  @media only screen and (max-width: 639px) {
+    max-width: 40% !important;
+  }
+
+  // sm
+  @media only screen and (min-width: 640px) {
+    max-width: 40% !important;
+  }
+
+  // md
+  @media only screen and (min-width: 768px) {
+    max-width: 55% !important;
+  }
+  // lg
+  @media only screen and (min-width: 1024px) {
+    max-width: 75% !important;
   }
 }
 
@@ -182,4 +218,30 @@ body {
   @media only screen and (min-width: 1024px) {
     font-size: larger !important;
   }
+}
+
+// Paper title
+.smui-paper__title {
+  font-family: 'NinKid' !important;
+  font-size: xx-large !important;
+  font-weight: bold !important;
+  color: #c1c1c1 !important;
+
+  // lg
+  @media only screen and (min-width: 1024px) {
+    padding-bottom: 10px !important;
+  }
+}
+
+// Paper content
+.smui-paper__content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  // lg
+  // @media only screen and (min-width: 1024px) {
+  //   padding-top: 10px !important;
+  // }
 }
