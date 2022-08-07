@@ -69,10 +69,30 @@ body {
 // DataTable header text
 .mdc-data-table__header-cell-wrapper, .mdc-data-table__header-cell {
   font-family: 'NinKid' !important;
-  font-size: x-large !important;
   color: $text_color !important;
-  padding-bottom: 4px !important;
-  min-width: 100px !important;
+
+  // xs (not in tailwind)
+  @media only screen and (max-width: 639px) {
+    font-size: medium !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+
+  // sm
+  @media only screen and (min-width: 640px) {
+    font-size: large !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  // lg
+  @media only screen and (min-width: 1024px) {
+    font-size: x-large !important;
+    min-width: 100px !important;
+    // default padding values
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 // DataTable data row
@@ -83,17 +103,50 @@ body {
 // DataTable data cells
 .mdc-data-table__cell, .mdc-data-table__cell--numeric {
   font-family: 'NinKid' !important;
-  font-size: large !important;
   color: $text_color !important;
   background-color: $secondary_bg;
   text-align: center !important;
   align-items: center !important;
+
+  // xs (not in tailwind)
+  @media only screen and (max-width: 639px) {
+    font-size: medium !important;
+  }
+
+  // md
+  @media only screen and (min-width: 768px) {
+    font-size: large !important;
+  }
+
+  // lg
+  @media only screen and (min-width: 1024px) {
+    font-size: large !important;
+  }
 }
 
 // DataTable non-numeric data cells (font digit padding bailout)
 .mdc-data-table__cell {
   padding-bottom: 5px !important;
   padding-top: 5px !important;
+
+  // xs (not in tailwind)
+  @media only screen and (max-width: 639px) {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+
+  // sm
+  @media only screen and (min-width: 640px) {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  // lg
+  @media only screen and (min-width: 1024px) {
+    // default values
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 // DataTable numeric data cells (font digit padding bailout)

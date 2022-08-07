@@ -66,9 +66,9 @@
             <h1 class="font-header text-7xl sm:text-7xl md:text-8xl xl:text-8xl pt-3 pr-4 sm:pt-8 md:pr-5">25</h1>
             <h1 class="font-header text-7xl sm:text-7xl md:text-8xl xl:text-8xl "> To Life Classic</h1>
         </div>
-        <p class="text-base md:text-xl lg:text-2xl ">13 years after its shutdown, <i>25 To Life</i> multiplayer mode has come back.</p>
-        <p class="text-base md:text-xl lg:text-2xl mt-2">Choose your side in action-packed street battles between gangsters and the police.</p>
-        <p class="text-base md:text-xl lg:text-2xl mt-2">The game is available on Phoenix Network launcher.</p>
+        <p class="text-base text-center md:text-xl lg:text-2xl ">13 years after its shutdown, <i>25 To Life</i> multiplayer mode has come back.</p>
+        <p class="text-base text-center md:text-xl lg:text-2xl mt-2">Choose your side in action-packed street battles between gangsters and the police.</p>
+        <p class="text-base text-center md:text-xl lg:text-2xl mt-2">The game is available on Phoenix Network launcher.</p>
     </div>
 
     <!--Download button-->
@@ -79,7 +79,7 @@
     </a>
     
     <!-- Carousel -->
-    <div class="w-2/3  xl:mt-4 mb-[40px] sm:mb-[20px] md:mb-[50px] lg:mb-[10px] xl:mb-[15px] 2xl:mb-[10px] max-h-[200px] sm:max-h-[250px] md:max-h-[270px] lg:max-h-[290px] xl:max-h-[300px] 2xl:max-h-[400px]">
+    <div class="w-2/3 xl:mt-4 mb-[80px] sm:mb-[80px] md:mb-[80px] lg:mb-[40px] xl:mb-[15px] 2xl:mb-[10px] max-h-[200px] sm:max-h-[250px] md:max-h-[270px] lg:max-h-[290px] xl:max-h-[300px] 2xl:max-h-[400px]">
         <svelte:component this={Carousel} {...props}>
             {#each slides as slide }
                 <CarouselSlide {slide} />
@@ -88,10 +88,10 @@
     </div>
     
     <!-- Headlines -->
-    <div class="flex flex-col text-[#c1c1c1] items-center w-2/3 mt-6 mb-14">
-        <div class="flex flex-row justify-start text-center w-full">
-            <div class="flex flex-col w-1/2 mx-10">
-                <h2 class="font-header text-lg sm:text-xl md:text-3xl lg:text-6xl xl:text-6xl">About</h2>
+    <div class="flex flex-col text-[#c1c1c1] items-center w-2/3 xs:mt-30 sm:mt-20 xl:mt-6 mb-14">
+        <div class="flex flex-row justify-center text-center w-full">
+            <div class="flex flex-col w-1/2 mx-4 lg:mx-10">
+                <h2 class="font-header text-2xl sm:text-3xl lg:text-6xl xl:text-6xl">About</h2>
                 <p class="font-body text-sm text-left sm:text-lg md:text-xl lg:text-2xl mt-8">Eidos Interactive terminated online services for <i>25 To Life</i> in 2009.</p>
                 <p class="font-body text-justify text-sm sm:text-lg md:text-xl lg:text-2xl mt-2">
                     <i>25 To Life Classic</i> is a revival project for 25 To Life online multiplayer mode (PC) led by <a href="https://phoenixnetwork.net" class="hover:text-orange-400"><b>Phoenix Network</b>.</a>
@@ -99,28 +99,28 @@
                 </p>
             </div>
             <div class="flex flex-col w-1/2 mx-10">
-                <h2 class="font-header text-lg sm:text-xl md:text-3xl lg:text-6xl xl:text-6xl">Download</h2>
+                <h2 class="font-header text-2xl sm:text-3xl lg:text-6xl xl:text-6xl">Download</h2>
                 <p class="font-body text-justify text-sm sm:text-lg md:text-xl lg:text-2xl mt-8">Download the Phoenix Network launcher, then register and log into your Phoenix account to install the online version of the game.</p>
                 <p class="font-body text-justify text-sm sm:text-lg md:text-xl lg:text-2xl mt-2">Before you do, make sure to read our <a href="/install" class="hover:text-[#3f3f46]"><b>installation guide</b>.</a></p>
                 
             </div>
         </div>
         <div class="flex flex-col justify-center items-center text-center w-1/2 m-10 ">
-            <h2 class="font-header text-lg sm:text-xl md:text-3xl lg:text-6xl xl:text-6xl">Credits</h2>
+            <h2 class="font-header text-2xl sm:text-3xl lg:text-6xl xl:text-6xl">Credits</h2>
             <p class="font-body text-sm text-justify sm:text-lg md:text-xl lg:text-2xl mt-8">Special thanks to these online people below whose contributions and initiative were essential for this project:</p>
-            <h3 class="font-header text-justify text-lg md:text-xl lg:text-4xl mt-3">
+            <h3 class="font-header text-center text-lg md:text-xl lg:text-4xl mt-3">
                 Warranty Voider
             </h3>
-            <h3 class="font-header text-justify text-lg md:text-xl lg:text-4xl mt-3">
+            <h3 class="font-header text-center text-lg md:text-xl lg:text-4xl mt-3">
                 xXBeefyDJXx
             </h3>
-            <h3 class="font-header text-justify text-lg md:text-xl lg:text-4xl mt-3">
+            <h3 class="font-header text-center text-lg md:text-xl lg:text-4xl mt-3">
                 LifeCoder
             </h3>
-            <h3 class="font-header text-justify text-lg md:text-xl lg:text-4xl mt-3">
+            <h3 class="font-header text-center text-lg md:text-xl lg:text-4xl mt-3">
                 Hayzrem
             </h3>
-            <h3 class="font-header text-justify text-lg md:text-xl lg:text-4xl mt-3">
+            <h3 class="font-header text-center text-lg md:text-xl lg:text-4xl mt-3">
                 Ozzymer
             </h3>
         </div>
