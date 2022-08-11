@@ -1,5 +1,16 @@
 <script>
+    import Tooltip, { Wrapper } from '@smui/tooltip';
+
+    // player data
     export let player;
+    
+    // icon size flag
+    export let small = false;   
+    const iconStyle = small ? "w-6 h-6" : "w-8 h-8";
+
+    // hyphen if draw
+    export let hyphened;
+
     const stats = player.stats;
     
     const criminalWins = stats.crim_victories > stats.law_victories;
@@ -9,21 +20,29 @@
 </script>
 
 {#if winsDraw && timeDraw}
+    {#if hyphened}
     <div class="flex flex-row justify-center items-center pb-[4px]">
-        -
+    -
     </div>
-{:else if (winsDraw && criminalTime) || (!winsDraw && criminalWins) }
+    {/if}
+{:else if (winsDraw && criminalTime) || (!winsDraw && criminalWins)}
+<Wrapper>
     <div class="flex flex-row justify-center items-center">
-        <img src='src/lib/assets/icons/pistol_icon.png'
+        <img src='/src/lib/assets/icons/pistol_icon.png'
             alt='Pistol icon'
-            class="w-6 h-6 "
+            class={iconStyle}
         >
     </div>
+    <Tooltip>Prefers criminals</Tooltip>
+</Wrapper>
 {:else}
+<Wrapper>
     <div class="flex flex-row justify-center items-center">
-        <img src='src/lib/assets/icons/badge_icon.png'
+        <img src='/src/lib/assets/icons/badge_icon.png'
             alt='Badge icon'
-            class="w-6 h-6 "
+            class={iconStyle}
         >
-    </div> 
+    </div>
+    <Tooltip>Prefers law enforcement</Tooltip>
+</Wrapper>
 {/if}

@@ -9,6 +9,9 @@ const config = {
 	},
 	optimizeDeps: {
 		include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
+	},
+	css: {
+		devSourcemap: true
 	}
 };
 

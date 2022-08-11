@@ -29,7 +29,8 @@
             answer: [
                 'We intentionally locked down both singleplayer and LAN multiplayer modes. These modes are still available and we do not provide them.',
                 'You have to use your original game copy to play these.',
-                'Note that we do not support standalone copies as authentication to Phoenix services is required.'
+                'Note that we do not support standalone copies as authentication to Phoenix services is required.',
+                'All the player clothing is unlocked and can be used in-game.',
             ]
         },
         {

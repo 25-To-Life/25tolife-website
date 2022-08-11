@@ -23,7 +23,7 @@
     <div class="flex flex-col justify-center items-center mt-[5rem] text-[#c1c1c1]">
         <div class="flex flex-col justify-center items-center mb-[100px]">
             <a href="/" class="flex hover:brightness-90 justify-center">
-                <img src='src/lib/assets/25 logo.png'
+                <img src='/src/lib/assets/25 logo.png'
                     alt='25 To Life logo'
                     class="mt-[50px] mb-9 mx-4 w-3/4"
                 >

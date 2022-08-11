@@ -1,3 +1,19 @@
+<script context="module">
+    
+    export async function load({ fetch }) {
+        // Fetch sorted players from /api/players
+        let res = await fetch('api/players');
+        const players = await res.json();
+
+        return {
+            props: {
+                players,
+            }
+        };
+    }
+    
+</script>
+
 <script>
     import DataTable, {
         Head,
@@ -6,10 +22,10 @@
         Cell,
         Label,
     } from '@smui/data-table';
-    import IconButton from '@smui/icon-button';
     import Rank from '../lib/components/Rank.svelte';
     import Side from '../lib/components/Side.svelte';
     
+    // player list
     export let players;
 </script>
 
@@ -70,7 +86,7 @@
                             <Label>Losses</Label>
                         </Cell>
                         <Cell columnId="score">
-                            <Label>Elo</Label>
+                            <Label>Rating</Label>
                         </Cell>
                     </Row>
                 </Head>
@@ -78,11 +94,15 @@
                     {#each players as player, i}
                         <Row>
                             <Cell>
-                                <Rank rank={i} />
+                                <Rank rank={i+1} />
                             </Cell>
-                            <Cell numeric>{player.username}</Cell>
+                            <Cell numeric>
+                                <a href={`/stats/${player.username}`} class="hover:text-orange-400">
+                                    {player.username}
+                                </a>
+                            </Cell>
                             <Cell>
-                                <Side {player} />
+                                <Side {player} hyphened small/>
                             </Cell>
                             <Cell numeric>{player.clan_tag ?? '-'}</Cell>
                             <Cell>{player.stats.crim_victories + player.stats.law_victories}</Cell>
@@ -95,4 +115,3 @@
         </div>
     </div>
 </div>
-

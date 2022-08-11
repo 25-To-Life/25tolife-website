@@ -112,16 +112,16 @@ model stats {
   crim_deaths_mp       Int?
   crim_deaths_ar       Int?
   crim_deaths_shotgun  Int?
-  cmn_tag_mvp          Int?
+  cmn_tag_wins         Int?
   cmn_tag_games        Int?
   cmn_tag_time         Int?
-  cmn_war_mvp          Int?
+  cmn_war_wins         Int?
   cmn_war_games        Int?
   cmn_war_time         Int?
-  cmn_robbery_mvp      Int?
+  cmn_robbery_wins     Int?
   cmn_robbery_games    Int?
   cmn_robbery_time     Int?
-  cmn_raid_mvp         Int?
+  cmn_raid_wins        Int?
   cmn_raid_games       Int?
   cmn_raid_time        Int?
   stat81               Int?

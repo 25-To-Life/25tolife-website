@@ -9,6 +9,7 @@ const config = {
 	preprocess: [
 		preprocess({
 		  postcss: true,
+		  sourceMap: true,
 		}),
 	],
 	files: {

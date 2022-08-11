@@ -20,33 +20,44 @@
     <TopAppBar variant="fixed">
         <Row>
             <Section>
-                <img src='src/lib/assets/25 logo.png'
+                <img src='/src/lib/assets/25 logo.png'
                     alt='25 To Life logo'
                     class="w-1/4 h-auto lg:w-1/5 xl:w-1/6 px-0 sm:px-4"
                 >
-                <ul id="menu" class="font-header text-sm sm:text-xl md:text-2xl">
+                <ul id="menu" class="font-header text-sm sm:text-xl md:text-2xl text-[#c1c1c1]">
                     <li class="inline">
                         <a href="/" 
                             on:click={() => menuSelect = 1}
                             class:selected="{menuSelect === 1}"
+                            class="hover:text-white ml-4 "
                         >HOME</a>
                     </li>
                     <li class="inline">
                         <a href="/install" 
                             on:click={() => menuSelect = 2}
                             class:selected="{menuSelect === 2}"
+                            class="hover:text-white ml-4 "
                         >INSTALL</a>
                     </li>
                     <li class="inline">
                         <a href="/leaderboard" 
                             on:click={() => menuSelect = 3}
                             class:selected="{menuSelect === 3}"
+                            class="hover:text-white ml-4 "
                         >LEADERBOARD</a>
                     </li>
                     <li class="inline">
-                        <a href="/faq" 
+                        <a href="/stats" 
                             on:click={() => menuSelect = 4}
                             class:selected="{menuSelect === 4}"
+                            class="hover:text-white ml-4 "
+                        >STATS</a>
+                    </li>
+                    <li class="inline">
+                        <a href="/faq" 
+                            on:click={() => menuSelect = 5}
+                            class:selected="{menuSelect === 5}"
+                            class="hover:text-white ml-4 "
                         >FAQ</a>
                     </li>
                 </ul>
@@ -56,12 +67,12 @@
                     <div class="flex flex-row items-center mr-[25px] sm:mr-[50px]">
                         <Switch bind:checked={darkMode} color="primary" icons={false} />
                         {#if !darkMode}
-                            <img src='src/lib/assets/icons/pistol_icon.png'
+                            <img src='/src/lib/assets/icons/pistol_icon.png'
                                 alt='Pistol icon'
                                 class="w-6 h-6"
                             >
                         {:else}
-                            <img src='src/lib/assets/icons/badge_icon.png'
+                            <img src='/src/lib/assets/icons/badge_icon.png'
                                 alt='Badge icon'
                                 class="w-6 h-6"
                             >
@@ -69,14 +80,14 @@
                     </div>
                         
                     <a href="https://discord.gg/eKKhz4sKRS" class="w-7 lg:w-8 w-min-[10px] h-min-[10px] mr-2 sm:mr-4 md:mr-7">
-                        <img src='src/lib/assets/Discord-Logo-White.png'
+                        <img src='/src/lib/assets/Discord-Logo-White.png'
                             alt='25 To Life: Classic Discord'
                             class="w-7 lg:w-8"
                         >
                     </a>
                     
                     <a href="https://github.com/michal-kapala/25tolife-website" class="w-6 md:w-7 lg:w-8 w-min-[10px] h-min-[10px] mr-3">
-                        <img src='src/lib/assets/GitHub-Mark-Light-32px.png'
+                        <img src='/src/lib/assets/GitHub-Mark-Light-32px.png'
                             alt='25 To Life: Classic GitHub'
                             class="w-6 md:w-7 lg:w-8"
                         >
@@ -96,7 +107,7 @@
 <div class="flex flex-row justify-center text-sm text-[#c1c1c1] bg-[#333] p-3">
     <div class="flex flex-row m-auto items-center py-5">
         <a href="https://phoenixnetwork.net" class="mr-4">
-            <img src='src/lib/assets/Phoenix_logo.png' 
+            <img src='/src/lib/assets/Phoenix_logo.png' 
                 alt='Phoenix Network logo'
                 class="w-full h-auto"
             >
