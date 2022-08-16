@@ -295,21 +295,21 @@ body {
 .mdc-layout-grid {
   margin-left: 0px !important;
   margin-right: 0px !important;
-  width: 100% !important;
 }
 
 // Tab bar
 .mdc-tab-bar {
-  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  width: auto !important;
   background-color: $primary_bg !important;
   border-radius: 6px !important;
 
   // xs (not in tailwind)
   @media only screen and (max-width: 639px) {
     width: auto !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    max-width: 100% !important;
   }
 }
 
@@ -321,8 +321,9 @@ body {
 
   // xs (not in tailwind)
   @media only screen and (max-width: 639px) {
-    padding-left: 2px !important;
-    padding-right: 2px !important;
+    min-width: 30px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
   }
 
   // sm
@@ -350,6 +351,11 @@ body {
   }
 }
 
+// Tab ripple - disabled
+.mdc-tab__ripple {
+  max-width: 0px !important;
+}
+
 // Tab indicator underline color
 .mdc-tab-indicator__content {
   border-top-color: $text_color !important;
@@ -362,8 +368,7 @@ body {
 
   // xs (not in tailwind)
   @media only screen and (max-width: 639px) {
-    width: auto !important;
-    font-size: small !important;
+    font-size: x-small !important;
     margin-bottom: 2px !important;
     margin-top: 2px !important;
   }

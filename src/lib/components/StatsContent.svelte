@@ -19,7 +19,7 @@
     export let activeTab;
 
     // Weapon tabs
-    const weapons = ['AR', 'MP', 'SR and pistol', 'Shotgun', 'Melee', 'Grenade'];
+    const weapons = ['AR', 'MP', 'SR/pistol', 'Shotgun', 'Melee', 'Grenade'];
     let activeWeaponTab = 'AR';
 
     // Game mode tabs
@@ -100,12 +100,12 @@
         : 'N/A';
 </script>
 
-<div class="mt-4 ">
+<div class="mt-4 xl:mt-8">
     <div class="flex flex-col font-body text-[#c1c1c1] lg:text-4xl ">
         <!-- Overview title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center xl:text-7xl p-2">General</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">General</h2>
                 <Tooltip>Player's general stats</Tooltip>
             </Wrapper>
         </div>
@@ -213,7 +213,7 @@
         <!-- K/D title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center xl:text-7xl p-2">K/D</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">K/D</h2>
                 <Tooltip>Kills and deaths stats</Tooltip>
             </Wrapper>
         </div>
@@ -221,21 +221,25 @@
         <StatRow>
             <LayoutGrid>
                 <!-- Kills -->
+                {#if activeTab == 'Criminals'}
                 <Cell>
-                    {#if activeTab == 'Criminals'}
                     <Stat name={'Kills'} value={stats.crim_kills}
                         desc="Kills as criminal"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                </Cell>
+                {:else if activeTab == 'Law Enforcement'}
+                <Cell>
                     <Stat name={'Kills'} value={stats.law_kills}
                         desc="Kills as law enforcement"
                     />
-                    {:else}
+                </Cell>
+                {:else}
+                <Cell>
                     <Stat name={'Kills'} value={stats.crim_kills + stats.law_kills}
                         desc="Total kills"
                     />
-                    {/if}
                 </Cell>
+                {/if}
                 <!-- Deaths -->
                 <Cell>
                     {#if activeTab == 'Criminals'}
@@ -253,25 +257,25 @@
                     {/if}
                 </Cell>
                 <!-- K/D -->
-                    {#if activeTab == 'Criminals'}
-                    <Cell>
-                        <Stat name={'K/D'} value={crim_kd} 
-                            desc="Kills/deaths ratio as criminals"
-                        />
-                    </Cell>
-                    {:else if activeTab == 'Law Enforcement'}
-                    <Cell>
-                        <Stat name={'K/D'} value={law_kd}
-                            desc="Kills/deaths ratio as law enforcement"
-                        />
-                    </Cell>
-                    {:else}
-                    <Cell>
-                        <Stat name={'K/D'} value={total_kd}
-                            desc="Kills/deaths ratio"
-                        />
-                    </Cell>
-                    {/if}
+                {#if activeTab == 'Criminals'}
+                <Cell>
+                    <Stat name={'K/D'} value={crim_kd} 
+                        desc="Kills/deaths ratio as criminals"
+                    />
+                </Cell>
+                {:else if activeTab == 'Law Enforcement'}
+                <Cell>
+                    <Stat name={'K/D'} value={law_kd}
+                        desc="Kills/deaths ratio as law enforcement"
+                    />
+                </Cell>
+                {:else}
+                <Cell>
+                    <Stat name={'K/D'} value={total_kd}
+                        desc="Kills/deaths ratio"
+                    />
+                </Cell>
+                {/if}
                 <!-- Suicides -->
                 {#if activeTab == 'Criminals'}
                 <Cell>
@@ -344,7 +348,7 @@
         <!-- Shooting title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center xl:text-7xl p-2">Shooting</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">Shooting</h2>
                 <Tooltip yPos="above">Shooting proficiency stats</Tooltip>
             </Wrapper>
         </div>
@@ -455,7 +459,7 @@
         <!-- Weapons title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center xl:text-7xl p-2">Weapons</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">Weapons</h2>
                 <Tooltip yPos="above">Weapon category stats</Tooltip>
             </Wrapper>
         </div>
@@ -477,7 +481,7 @@
         <!-- Game mode title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center xl:text-7xl p-2">Game modes</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">Game modes</h2>
                 <Tooltip yPos="above">Total game mode stats</Tooltip>
             </Wrapper>
         </div>

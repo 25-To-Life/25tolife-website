@@ -11,7 +11,7 @@
     export let ratio = false;
 </script>
 
-<div class="flex flex-row font-body justify-center items-center text-center lg:text-4xl ">
+<div class="flex flex-row font-body justify-center items-center text-center text-lg xl:text-2xl 2xl:text-4xl ">
     <!-- Name -->
     {#if desc != ""}
     <Wrapper>

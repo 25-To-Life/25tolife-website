@@ -6,7 +6,7 @@
     
     // icon size flag
     export let small = false;   
-    const iconStyle = small ? "w-6 h-6" : "w-8 h-8";
+    const iconStyle = small ? "w-3 md:w-6 h-3 md:h-6" : "w-4 md:w-8 h-4 md:h-8";
 
     // hyphen if draw
     export let hyphened;

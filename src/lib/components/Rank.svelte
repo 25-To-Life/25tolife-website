@@ -23,7 +23,7 @@
 <Wrapper>
     {#if rank <= 10}
         <div class="flex flex-row justify-center items-center ">
-            <img src={rankIcons[rank-1]} alt="Rank icon" class="h-[32px] w-[32px]">
+            <img src={rankIcons[rank-1]} alt="Rank icon" class="h-4 md:h-8 w-4 md:w-8">
         </div>
     {:else}
         <div class="flex flex-row justify-center items-center">

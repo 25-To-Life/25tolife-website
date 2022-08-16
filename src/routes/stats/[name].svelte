@@ -42,37 +42,38 @@
                     <!-- Stats card -->
                     <Paper color="primary">
                         <div class="flex flex-col items-center">
-                            <div class="flex flex-row justify-center items-center mt-2">
+                            <div class="flex flex-row justify-center items-center mt-2 xl:mt-4 xl:mb-8 w-full">
                                 <!-- Name -->
-                                <h1 class="font-header text-4xl sm:text-5xl md:text-7xl xl:text-8xl mb-8 text-[#c1c1c1]">
+                                <div class="flex flex-row font-header text-4xl sm:text-5xl md:text-7xl xl:text-8xl text-[#c1c1c1]">
                                     {#if player.clan_tag != null}
-                                        <div class="flex flex-row items-end">
+                                        <div class="flex flex-row items-center">
                                             <Wrapper>
-                                                <h1 class="font-body text-base xl:text-5xl p-1 mr-2 xl:mr-5">[{player.clan_tag}]</h1>
+                                                <h1 class="font-body text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mr-2 xl:mr-5">[{player.clan_tag}]</h1>
                                                 <Tooltip>Clan {player.clan_tag}</Tooltip>
                                             </Wrapper>
-                                            <h1>{player.username}</h1>
+                                            <h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-7xl pb-2 xl:pb-6">
+                                                {player.username}
+                                            </h1>
                                         </div>
                                     {:else}
-                                        {player.username}
+                                        <h1>{player.username}</h1>
                                     {/if}
-                                </h1>
-                                <div class="flex flex-col justify-center items-center text-[#c1c1c1] sm:pt-1 xl:pt-3 mx-2 xl:mx-5">
-                                    <!-- Icons row -->
-                                    <div class="flex flex-row items-center mx-1 xl:mt-1">
-                                        <div class="mr-1">
-                                            <Rank {rank} hashed />    
+                                    <div class="flex flex-col justify-center items-center text-[#c1c1c1] mx-2 xl:mx-5">
+                                        <!-- Icons row -->
+                                        <div class="flex flex-row items-center mx-1">
+                                            <div class="mr-1">
+                                                <Rank {rank} hashed />    
+                                            </div>
+                                            <div class="mr-1">
+                                                <RatingIcon rating={player.stats.ranking} />
+                                            </div>
+                                            <Side {player} hyphened={false}/>
                                         </div>
-                                        <div class="mr-1">
-                                            <RatingIcon rating={player.stats.ranking} />
-                                        </div>
-                                        <Side {player} hyphened={false}/>
                                     </div>
-                                    <!-- <p class="text-sm justify-center">Rating: {player.stats.ranking}</p> -->
                                 </div>
                             </div>
                             <!-- Tab bar -->
-                            <div class="flex flex-col justify-center items-center mt-2">
+                            <div class="flex flex-col justify-center items-center sm:mt-2 w-full">
                                 <TabBar tabs={tabs} let:tab bind:active={activeTab}>
                                     <Tab {tab} minWidth>
                                         <Label>
@@ -84,13 +85,10 @@
                                 </TabBar>
                             </div>
                             <!-- Tab content -->
-                            <div class="flex flex-col xl:w-3/4 ">
+                            <div class="flex flex-col xl:w-3/4 w-full">
                                 <StatsContent {player} {activeTab} />
                             </div>
                         </div>
-                        
-                        
-                        
                     </Paper>
                   </div>
             </div>

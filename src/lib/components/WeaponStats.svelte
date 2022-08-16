@@ -89,7 +89,7 @@
                         <Stat name={'Kills'} value={stats.crim_kills_mp}
                             desc="Machine pistol kills as criminals"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Kills'} value={stats.crim_kills_nonauto}
                             desc="Sniper rifle and pistol kills as criminals"
                         />
@@ -115,7 +115,7 @@
                         <Stat name={'Kills'} value={stats.law_kills_mp}
                             desc="Machine pistol kills as law enforcement"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Kills'} value={stats.law_kills_nonauto}
                             desc="Sniper rifle and pistol kills as law enforcement"
                         />
@@ -141,7 +141,7 @@
                         <Stat name={'Kills'} value={stats.crim_kills_mp+ stats.law_kills_mp}
                             desc="Total machine pistol kills"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Kills'} value={stats.crim_kills_nonauto + stats.law_kills_nonauto}
                             desc="Total sniper rifle and pistol kills"
                         />
@@ -171,7 +171,7 @@
                         <Stat name={'Deaths'} value={stats.crim_deaths_mp}
                             desc="Deaths from machine pistols as criminals"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Deaths'} value={stats.crim_deaths_nonauto}
                             desc="Deaths from sniper rifles and pistols as criminals"
                         />
@@ -197,7 +197,7 @@
                         <Stat name={'Deaths'} value={stats.law_deaths_mp}
                             desc="Deaths from machine pistols as law enforcement"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Deaths'} value={stats.law_deaths_nonauto}
                             desc="Deaths from sniper rifles and pistols as law enforcement"
                         />
@@ -223,7 +223,7 @@
                         <Stat name={'Deaths'} value={stats.crim_deaths_mp+ stats.law_deaths_mp}
                             desc="Total deaths from machine pistols"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Deaths'} value={stats.crim_deaths_nonauto + stats.law_deaths_nonauto}
                             desc="Total deaths from sniper rifles and pistols"
                         />
@@ -253,7 +253,7 @@
                         <Stat name={'K/D'} value={crim_kd_mp}
                             desc="Machine pistol kills with/killed by ratio as criminals"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'K/D'} value={crim_kd_nonauto}
                             desc="Sniper rifle and pistol kills with/killed by ratio as criminals"
                         />
@@ -279,7 +279,7 @@
                         <Stat name={'K/D'} value={law_kd_mp}
                             desc="Machine pistol kills with/killed by ratio as law enforcement"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'K/D'} value={law_kd_nonauto}
                             desc="Sniper rifle and pistol kills with/killed by ratio as law enforcement"
                         />
@@ -305,7 +305,7 @@
                         <Stat name={'K/D'} value={total_kd_mp}
                             desc="Machine pistol kills with/killed by ratio"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'K/D'} value={total_kd_nonauto}
                             desc="Sniper rifle and pistol kills with/killed by ratio"
                         />
@@ -335,7 +335,7 @@
                         <Stat name={'Deaths holding'} value={stats.crim_hdeaths_mp}
                             desc="Deaths while holding machine pistols as criminals"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Deaths holding'} value={stats.crim_hdeaths_nonauto}
                             desc="Deaths while holding sniper rifles or pistols as criminals"
                         />
@@ -361,7 +361,7 @@
                         <Stat name={'Deaths holding'} value={stats.law_hdeaths_mp}
                             desc="Deaths while holding machine pistols as law enforcement"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Deaths holding'} value={stats.law_hdeaths_nonauto}
                             desc="Deaths while holding sniper rifles or pistols as law enforcement"
                         />
@@ -387,7 +387,7 @@
                         <Stat name={'Deaths holding'} value={stats.crim_hdeaths_mp + stats.law_hdeaths_mp}
                             desc="Total deaths while holding machine pistols"
                         />
-                    {:else if activeWeaponTab == 'SR and pistol'}
+                    {:else if activeWeaponTab == 'SR/pistol'}
                         <Stat name={'Deaths holding'} value={stats.crim_hdeaths_nonauto + stats.law_hdeaths_nonauto}
                             desc="Total deaths while holding sniper rifles or pistols"
                         />

@@ -102,7 +102,7 @@
                                 </a>
                             </Cell>
                             <Cell>
-                                <Side {player} hyphened small/>
+                                <Side {player} hyphened />
                             </Cell>
                             <Cell numeric>{player.clan_tag ?? '-'}</Cell>
                             <Cell>{player.stats.crim_victories + player.stats.law_victories}</Cell>
