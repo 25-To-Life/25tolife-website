@@ -38,12 +38,12 @@
     <!--Centered container-->
     <div class="flex flex-col justify-center w-1/2">
         <!--Paragraphs-->
-        <div class="flex flex-col justify-center items-center text-center text-[#c1c1c1] mt-[6rem] mb-6">
+        <div class="flex flex-col justify-center items-center text-center text-primary-light dark:text-primary-dark mt-[6rem] mb-6">
             <h1 class="font-header text-6xl sm:text-7xl md:text-8xl xl:text-8xl mt-4 mb-2 md:mb-3">ranking system</h1>
             <p class="text-base text-center md:text-xl lg:text-2xl mt-8">Win games to climb. Don't lose. And always use the radios.</p>
             <p class="text-base text-center md:text-xl lg:text-2xl mt-2">We keep it OG. The ranking system is back unchanged.</p>
             <p class="text-base text-center md:text-xl lg:text-2xl mt-2">You can read on the ELO rating calculation specifics
-                <a class="hover:text-[#3f3f46]"
+                <a class="hover:text-accent-primary-light dark:hover:text-accent-secondary-dark"
                     href="https://web.archive.org/web/20071223122600/http://stats.25tolife.com/faq/#qprating">
                     <b>here</b>.
                 </a>
@@ -57,19 +57,7 @@
             <DataTable table$aria-label="Player leaderboard">
                 <Head>
                     <Row>
-                        <!--
-                            Note: whatever you supply to "columnId" is
-                            appended with "-status-label" and used as an ID
-                            for the hidden label that describes the sort
-                            status to screen readers.
-    
-                            You can localize those labels with the
-                            "sortAscendingAriaLabel" and
-                            "sortDescendingAriaLabel" props on the DataTable.
-                        -->
                         <Cell columnId="rank">
-                            <!-- For numeric columns, icon comes first. -->
-                            <!-- <IconButton class="material-icons">arrow_upward</IconButton> -->
                             <Label>Rank</Label>
                         </Cell>
                         <Cell columnId="player">
@@ -97,7 +85,7 @@
                                 <Rank rank={i+1} />
                             </Cell>
                             <Cell numeric>
-                                <a href={`/stats/${player.username}`} class="hover:text-orange-400">
+                                <a href={`/stats/${player.username}`} class="hover:text-accent-primary-light dark:hover:text-accent-secondary-dark">
                                     {player.username}
                                 </a>
                             </Cell>

@@ -1,5 +1,4 @@
 <script>
-    import { slide } from 'svelte/transition';
     // SMUI imports
     import LayoutGrid, { Cell } from '@smui/layout-grid';
     import Tab, { Label } from '@smui/tab';
@@ -101,20 +100,24 @@
 </script>
 
 <div class="mt-4 xl:mt-8">
-    <div class="flex flex-col font-body text-[#c1c1c1] lg:text-4xl ">
+    <div class="flex flex-col font-body text-primary-light dark:text-primary-dark lg:text-4xl ">
         <!-- Overview title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">General</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">
+                    General
+                </h2>
                 <Tooltip>Player's general stats</Tooltip>
             </Wrapper>
         </div>
         <!-- Overview stats -->
         <StatRow>
             <LayoutGrid>
-                <!-- Ranking -->
+                <!-- Rating -->
                 <Cell>
-                    <Stat name={'Rating'} value={stats.ranking} ratio={false}/>
+                    <Stat name={'Rating'} value={stats.ranking} 
+                        desc="Player's ELO rating"
+                    />
                 </Cell>
                 <!-- Winrate -->
                 <Cell>
@@ -209,11 +212,13 @@
             {/if}
         </StatRow>
     </div>
-    <div class="flex flex-col font-body text-[#c1c1c1] lg:text-4xl mt-5">
+    <div class="flex flex-col font-body text-primary-light dark:text-primary-dark lg:text-4xl mt-5">
         <!-- K/D title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">K/D</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">
+                    K/D
+                </h2>
                 <Tooltip>Kills and deaths stats</Tooltip>
             </Wrapper>
         </div>
@@ -344,11 +349,13 @@
             </LayoutGrid>
         </StatRow>
     </div>
-    <div class="flex flex-col font-body text-[#c1c1c1] lg:text-4xl mt-5">
+    <div class="flex flex-col font-body text-primary-light dark:text-primary-dark lg:text-4xl mt-5">
         <!-- Shooting title -->
         <div class="flex justify-center items-center">
             <Wrapper>
-                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">Shooting</h2>
+                <h2 class="text-center text-2xl md:text-4xl lg:text-5xl 2xl:text-7xl p-2">
+                    Shooting
+                </h2>
                 <Tooltip yPos="above">Shooting proficiency stats</Tooltip>
             </Wrapper>
         </div>
@@ -455,7 +462,7 @@
         </StatRow>
     </div>
     <!-- Weapons -->
-    <div class="flex flex-col font-body text-[#c1c1c1] lg:text-4xl mt-5">
+    <div class="flex flex-col font-body text-primary-light dark:text-primary-dark lg:text-4xl mt-5">
         <!-- Weapons title -->
         <div class="flex justify-center items-center">
             <Wrapper>
@@ -477,7 +484,7 @@
         <WeaponStats {stats} {activeTab} {activeWeaponTab} />
     </div>
     <!-- Game modes -->
-    <div class="flex flex-col font-body text-[#c1c1c1] lg:text-4xl mt-5">
+    <div class="flex flex-col font-body text-primary-light dark:text-primary-dark lg:text-4xl mt-5">
         <!-- Game mode title -->
         <div class="flex justify-center items-center">
             <Wrapper>

@@ -18,10 +18,12 @@
     const winsText = wins != 1 ? 'wins' : 'win' ;
 </script>
 
-<a href={path} class="flex flex-row justify-center items-center mx-2 my-4 px-2 py-6 bg-[#333] hover:brightness-125 text-[#c1c1c1] border-[1px] border-[#333] rounded-md shadow-md">
+<a href={path} class="flex flex-row justify-center items-center mx-2 my-4 px-4 py-6 
+    bg-bg-primary-light dark:bg-bg-primary-dark hover:brightness-110 dark:hover:brightness-125 
+    text-primary-light dark:text-primary-dark dark:border-bg-primary-dark rounded-md shadow-md">
     <img src={iconPath}
         alt='Player rank icon'
-        class="mx-2 lg:w-9 lg:h-9"
+        class="mx-2 lg:w-8 lg:h-8"
     >
     <div class="flex flex-col text-left lg:ml-1">
         <h2><b>{player.username}</b></h2>

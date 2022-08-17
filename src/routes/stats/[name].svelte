@@ -34,7 +34,7 @@
 {#if player != null}
     
     <!-- Stats page -->
-    <div class="flex flex-col justify-center items-center mx-4 text-[#c1c1c1]">
+    <div class="flex flex-col justify-center items-center mx-4 text-primary-light dark:text-primary-dark">
         <div class="flex flex-col justify-center items-center mt-[6rem] md:mt-[7rem] w-3/4">
             <div class="flex flex-col justify-center items-center text-center mb-2 md:mb-3 w-full">
                 <!-- Stats container -->
@@ -44,11 +44,13 @@
                         <div class="flex flex-col items-center">
                             <div class="flex flex-row justify-center items-center mt-2 xl:mt-4 xl:mb-8 w-full">
                                 <!-- Name -->
-                                <div class="flex flex-row font-header text-4xl sm:text-5xl md:text-7xl xl:text-8xl text-[#c1c1c1]">
+                                <div class="flex flex-row font-header text-4xl sm:text-5xl md:text-7xl xl:text-8xl text-primary-light dark:text-primary-dark">
                                     {#if player.clan_tag != null}
                                         <div class="flex flex-row items-center">
                                             <Wrapper>
-                                                <h1 class="font-body text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mr-2 xl:mr-5">[{player.clan_tag}]</h1>
+                                                <h1 class="font-body text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mr-2 xl:mr-5">
+                                                    [{player.clan_tag}]
+                                                </h1>
                                                 <Tooltip>Clan {player.clan_tag}</Tooltip>
                                             </Wrapper>
                                             <h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-7xl pb-2 xl:pb-6">
@@ -58,7 +60,7 @@
                                     {:else}
                                         <h1>{player.username}</h1>
                                     {/if}
-                                    <div class="flex flex-col justify-center items-center text-[#c1c1c1] mx-2 xl:mx-5">
+                                    <div class="flex flex-col justify-center items-center text-primary-light dark:text-primary-dark mx-2 xl:mx-5">
                                         <!-- Icons row -->
                                         <div class="flex flex-row items-center mx-1">
                                             <div class="mr-1">
@@ -97,7 +99,7 @@
 {:else}
     <!-- 404: player does not exist -->
     <div class="flex flex-col justify-center items-center h-full">
-        <div class="flex flex-col justify-center items-center mt-[5rem] text-[#c1c1c1]">
+        <div class="flex flex-col justify-center items-center mt-[5rem] text-primary-light dark:text-primary-dark">
             <div class="flex flex-col justify-center items-center mb-[100px]">
                 <a href="/" class="flex hover:brightness-90 justify-center">
                     <img src='/src/lib/assets/25 logo.png'

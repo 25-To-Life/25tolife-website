@@ -8,7 +8,7 @@
     const renderUrl = slide.url != null && slide.url != '';
 </script>
 
-<div class="flex flex-col bg-[#333] overflow-clip ">
+<div class="flex flex-col bg-bg-primary-light dark:bg-bg-primary-dark overflow-clip ">
     {#if renderUrl}
     <a class="w-full h-full h-max-[400px] hover:brightness-125"href={slide.url}>
         <img class="w-full h-full " src={imgPath} alt={slide.alt}>
@@ -17,8 +17,8 @@
         <img class="w-full h-full h-max-[400px]" src={imgPath} alt={slide.alt}>
     {/if}
 </div>
-<div class="flex flex-col bg-[#333] justify-center items-center">
-    <div class="text-center opacity-50 text-[#c1c1c1] w-full  px-4">
+<div class="flex flex-col bg-bg-primary-light dark:bg-bg-primary-dark justify-center items-center">
+    <div class="text-center dark:opacity-50 text-primary-light dark:text-primary-dark w-full px-4">
         <h1 class="font-header sm:text-2xl md:text-3xl lg:text-5xl"><b>{slide.title}</b></h1>
         {#each slide.paragraphs as paragraph, i }
             {#if i == 0}

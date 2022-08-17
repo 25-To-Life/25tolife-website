@@ -14,6 +14,16 @@ export async function GET({ params }) {
             friends: false
         }
     });
+    // player not found - the error is handled by the page
+    if(player == null) {
+        return {
+            status: 200,
+            body: {
+                player: null,
+                rank: null,
+            }
+        }
+    }
 
     // calculate player's rank
     var higherRated = await prisma.stats.findMany({

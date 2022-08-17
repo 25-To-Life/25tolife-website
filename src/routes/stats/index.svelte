@@ -50,7 +50,7 @@
 </svelte:head>
 
 <!--Main container-->
-<div class="flex flex-col justify-center items-center mx-4 text-[#c1c1c1]">
+<div class="flex flex-col justify-center items-center mx-4 text-primary-light dark:text-primary-dark">
     <!-- Stats -->
     <div id='faq' class="flex flex-col justify-center items-center mt-[6rem] md:mt-[7rem]">
         <div class="flex flex-col justify-center items-center text-center mb-2 md:mb-3">
@@ -71,13 +71,13 @@
                 label="Player"
             />
             <!-- See stats button-->
-            <a href={`/stats/${input}`} class="mx-4 mb-0 h-full font-body text-[#c1c1c1] text-base sm:text-xl xl:text-2xl"> 
+            <a href={`/stats/${input}`} class="mx-4 mb-0 h-full font-body text-white dark:text-primary-dark text-base sm:text-xl xl:text-2xl"> 
                 {#if input !== '' && input !== undefined}
-                    <button on:click={handleSearch} class="bg-orange-600 hover:bg-orange-500 h-full px-4 pb-2 pt-2 rounded-md shadow-md">
+                    <button on:click={handleSearch} class="transition bg-accent-primary-light hover:bg-accent-secondary-light dark:bg-accent-primary-dark dark:hover:bg-accent-secondary-dark h-full px-4 pb-2 pt-2 rounded-md shadow-md">
                         See stats
                     </button>  
                 {:else}
-                    <button disabled class="bg-[#3f3f46] h-full px-4 pb-2 pt-2 rounded-md shadow-md">
+                    <button disabled class="transition bg-bg-secondary-light dark:bg-bg-secondary-dark text-primary-dark dark:text-primary-dark h-full px-4 pb-2 pt-2 rounded-md shadow-md">
                         See stats
                     </button>
                 {/if}

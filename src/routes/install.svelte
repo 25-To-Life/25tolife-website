@@ -7,7 +7,7 @@
 </svelte:head>
 
 <!--Main container-->
-<div class="flex flex-col justify-center items-center mx-4 text-[#c1c1c1]">
+<div class="flex flex-col justify-center items-center mx-4 text-primary-light dark:text-primary-dark">
     <!-- Headlines -->
     <div class="flex flex-col justify-center items-center mt-[6rem] md:mt-[7rem]">
         <div class="flex flex-col justify-center items-center text-center mb-2 md:mb-3">
@@ -23,13 +23,14 @@
                         <b>Download Phoenix Network launcher</b>
                     </Header>
                     <Content class="text-justify items-center">
-                        <div class="flex flex-row items-center my-2">
+                        <div class="flex flex-row items-center mb-2">
                             <p class="w-full ml-6 mr-4">Phoenix Launcher is required to download the game - download and run the installer.
                                 We do not support your own copy of the game. The launcher requires Windows 7 or newer.
                             </p>
                             <div class="flex flex-row justify-center items-center w-1/3 mx-4 sm:mx-1">
                                 <a href="https://cdn.phoenixnetwork.net/updater/versions/client/Launcher/PhoenixInstaller.exe" class="my-1 md:my-2 items-end">
-                                    <button class="font-body text-[#c1c1c1] sm:text-xl bg-orange-600 hover:bg-orange-500 px-4 py-2 rounded-md shadow-md">
+                                    <button class="font-body text-white dark:text-primary-dark sm:text-xl bg-accent-primary-light hover:bg-accent-secondary-light 
+                                        dark:bg-accent-primary-dark dark:hover:bg-accent-secondary-dark px-4 py-2 rounded-md shadow-md">
                                         Download
                                     </button>
                                 </a>
@@ -42,7 +43,7 @@
                         <b>Register Phoenix account</b>
                     </Header>
                     <Content>
-                        <div class="flex flex-col justify-center items-center text-justify my-2 mx-4">
+                        <div class="flex flex-col justify-center items-center text-justify mb-2 mx-4">
                             <div class="w-full max-w-[80%] justify-start text-justify ">
                                 <p class="w-auto mx-4">
                                     Create your Phoenix account using the launcher and log in afterwards.
@@ -62,7 +63,7 @@
                         <b>Download the game</b>
                     </Header>
                     <Content>
-                        <div class="flex flex-col justify-center items-center text-justify my-2">
+                        <div class="flex flex-col justify-center items-center text-justify mb-2">
                             <p class="w-auto max-w-[75%] mx-4">
                                 After you log into the launcher, go to <u>Games/25 To Life</u> tab and click 'Update' to download and install the game.
                             </p>
@@ -79,14 +80,14 @@
                         <b>Forward game's port</b>
                     </Header>
                     <Content>
-                        <div class="flex flex-col justify-center items-center text-justify my-2">
+                        <div class="flex flex-col justify-center items-center text-justify mb-2">
                             <p class="w-auto max-w-[75%] mx-4">
                                 The game requires port <b>4659 (UDP)</b> to be forwarded. You will not be able to register your in-game account without this.
                             </p>
                             <p class="w-auto max-w-[75%] mx-4 mt-2">
                                 The launcher will show your game port availability along with the
                                 <a href="https://en.wikipedia.org/wiki/Network_address_translation"
-                                    class="hover:text-orange-400"
+                                    class="hover:text-accent-primary-light dark:hover:text-accent-secondary-dark"
                                 >
                                     <b>NAT type</b></a> of your ISP.
                             </p>
@@ -104,7 +105,7 @@
                         <b>Register in-game account</b>
                     </Header>
                  <Content>
-                    <div class="flex flex-col justify-center items-center text-justify my-2">
+                    <div class="flex flex-col justify-center items-center text-justify mb-2">
                         <p class="w-auto max-w-[75%] mx-4">
                             Press 'Start' to run the game. Running the game from the launcher is <b>required</b> to connect to the game servers.
                         </p>
@@ -133,15 +134,7 @@
                 </Panel>
             </Accordion>
         </div>
-        <!-- <div class="flex flex-col justify-center items-center text-center mx-10 mt-4 xl:mt-10 ">
-            <h2 class="font-header text-3xl sm:text-7xl md:text-8xl xl:text-8xl mb-2 md:mb-4 xl:mb-8">Tech support</h2>
-            <p class="font-body text-center text-base sm:text-lg md:text-xl lg:text-2xl my-4 xl:my-8 ">
-                Should you have any problems or questions, go ahead and share them on our Discord support channel.
-                We're happy to help you!
-            </p>
-        </div>    -->
     </div>
-
     <div class="flex flex-col justify-center items-center mt-4 xl:mt-10">
         <div class="flex flex-col justify-center items-center w-3/4 xl:w-1/2 text-center mb-2 md:mb-3">
             <h1 class="font-header text-5xl sm:text-7xl md:text-8xl xl:text-8xl mb-2 md:mb-4 xl:mb-8">Tech support</h1>

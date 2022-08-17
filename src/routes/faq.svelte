@@ -110,7 +110,7 @@
 </svelte:head>
 
 <!--Main container-->
-<div class="flex flex-col justify-center items-center mx-4 text-[#c1c1c1]">
+<div class="flex flex-col justify-center items-center mx-4 text-primary-light dark:text-primary-dark">
     <!-- FAQ -->
     <div id='faq' class="flex flex-col justify-center items-center mt-[6rem] md:mt-[7rem]">
         <div class="flex flex-col justify-center items-center text-center mb-2 md:mb-3">

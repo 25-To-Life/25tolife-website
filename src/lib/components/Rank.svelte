@@ -26,13 +26,15 @@
             <img src={rankIcons[rank-1]} alt="Rank icon" class="h-4 md:h-8 w-4 md:w-8">
         </div>
     {:else}
-        <div class="flex flex-row justify-center items-center">
-            {#if hashed}
-                #{rank}
-            {:else}
-                {rank}
-            {/if}
+        {#if hashed}
+        <div class="flex flex-row justify-center items-center text-base md:text-xl font-body">
+            #{rank}
         </div>
+        {:else}
+        <div class="flex flex-row justify-center items-center">
+            {rank}
+        </div>
+        {/if}
     {/if}
     <Tooltip>Rank {rank}</Tooltip>
 </Wrapper>

@@ -2,395 +2,388 @@
 
 @use '@material/theme/color-palette';
 
-// Svelte Colors!
+// Svelte Colors! (Light Theme)
+// some other colors: #ce9d5a #be8d4a #e2b268
 @use '@material/theme/index' as theme with (
-  $primary: #333,//#ff3e00,
-  $secondary: #676778,
-  $surface: #fff,
+  $primary: #be8d4a,
+  $secondary: #3f3f46,
+  $surface: #be8d4a,
   $background: #fff,
-  $error: color-palette.$red-900
+  $error: color-palette.$red-700
 );
 
-@font-face {
-  font-family: 'UbuntuLight';
-  src: url('/fonts/Ubuntu-Light.ttf');
-}
+// Light mode wrapper class
+.light {
 
-// Customs
-$primary_bg: #333;
-$secondary_bg: #3f3f46;
-$text_color: #c1c1c1;
-
-html,
-body {
-  background-color: theme.$surface;
-  color: theme.$on-surface;
-}
-
-// TopAppBar spacing
-.mdc-top-app-bar {
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    padding-top: 2px;
-    padding-bottom: 2px;
-  }
-
-  // sm
-  @media only screen and (min-width: 640px) {
-    padding-top: 6px;
-    padding-bottom: 6px;
-  }
-}
-
-// TopAppBar spacing
-.mdc-top-app-bar__row {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-// TopAppBar logo
-.mdc-top-app-bar__section > img {
-  margin-top: 1px !important;
-}
-
-// TopAppBar social media icons
-.mdc-top-app-bar__section > a {
-  margin-left: 16px !important;
-  margin-right: 16px !important;
-}
-
-// TopAppBar tabs
-// .mdc-top-app-bar__section > ul > li > a {
-//   margin-left: 16px;
-//   color: $text_color;
-
-//   &:hover {
-//     color: red;
-//   }
-// }
-// TopAppBar menu containier
-#menu {
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    max-width: 40% !important;
-  }
-
-  // sm
-  @media only screen and (min-width: 640px) {
-    max-width: 40% !important;
-  }
-
-  // md
-  @media only screen and (min-width: 768px) {
-    max-width: 55% !important;
-  }
-  // lg
-  @media only screen and (min-width: 1024px) {
-    max-width: 75% !important;
-  }
-}
-
-// DataTable
-.mdc-data-table {
-  margin-bottom: 2rem;
-  border-width: 0px !important;
-}
-
-// DataTable header
-.mdc-data-table__header-row > th {
-  background-color: $primary_bg !important;
-  text-align: center !important;
-}
-
-// DataTable header text
-.mdc-data-table__header-cell-wrapper, .mdc-data-table__header-cell {
-  font-family: 'NinKid' !important;
-  color: $text_color !important;
-
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    font-size: medium !important;
-    padding-left: 2px !important;
-    padding-right: 2px !important;
-  }
-
-  // sm
-  @media only screen and (min-width: 640px) {
-    font-size: large !important;
-    padding-left: 6px !important;
-    padding-right: 6px !important;
-  }
-
-  // lg
-  @media only screen and (min-width: 1024px) {
-    font-size: x-large !important;
-    min-width: 100px !important;
-    // default padding values
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-// DataTable data row
-.mdc-data-table__row:hover {
-    filter: brightness(150%);
-}
-
-// DataTable data cells
-.mdc-data-table__cell, .mdc-data-table__cell--numeric {
-  font-family: 'NinKid' !important;
-  color: $text_color !important;
-  background-color: $secondary_bg;
-  text-align: center !important;
-  align-items: center !important;
-
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    font-size: medium !important;
-  }
-
-  // md
-  @media only screen and (min-width: 768px) {
-    font-size: large !important;
-  }
-
-  // lg
-  @media only screen and (min-width: 1024px) {
-    font-size: large !important;
-  }
-}
-
-// DataTable non-numeric data cells (font digit padding bailout)
-.mdc-data-table__cell {
-  padding-bottom: 5px !important;
-  padding-top: 5px !important;
-
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    padding-left: 2px !important;
-    padding-right: 2px !important;
-  }
-
-  // sm
-  @media only screen and (min-width: 640px) {
-    padding-left: 6px !important;
-    padding-right: 6px !important;
-  }
-
-  // lg
-  @media only screen and (min-width: 1024px) {
-    // default values
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-// DataTable numeric data cells (font digit padding bailout)
-.mdc-data-table__cell--numeric {
-  padding-bottom: 9px !important;
-  padding-top: 5px !important;
-}
-
-// Accordion title and content text
-.smui-accordion__header__title, .smui-paper__content {
-  font-family: 'UbuntuLight' !important;
-  color: $text_color !important;
-}
-
-// Accordion title text - Tailwind's default media breakpoints
-.smui-accordion__header__title {
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    font-size: small !important;
-  }
-
-  // sm
-  @media only screen and (min-width: 640px) {
-    font-size: small !important;
+  @font-face {
+    font-family: 'UbuntuLight';
+    src: url('/fonts/Ubuntu-Light.ttf');
   }
   
-  // md
-  @media only screen and (min-width: 768px) {
-    font-size: large !important;
+  // Customs
+  $primary_bg: #be8d4a;
+  $secondary_bg: #ce9d5a;
+  $text_color: black;
+  
+  html,
+  body {
+    background-color: theme.$surface;
+    color: theme.$on-surface;
   }
 
-  // lg
-  @media only screen and (min-width: 1024px) {
-    font-size: larger !important;
+  // TopAppBar spacing
+  .mdc-top-app-bar {
+    background-color: #be8d4a !important;
+
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
+    // sm
+    @media only screen and (min-width: 640px) {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
   }
-}
 
-// Paper title
-.smui-paper__title {
-  font-family: 'NinKid' !important;
-  font-size: xx-large !important;
-  font-weight: bold !important;
-  color: #c1c1c1 !important;
-
-  // lg
-  @media only screen and (min-width: 1024px) {
-    padding-bottom: 10px !important;
+  // TopAppBar spacing
+  .mdc-top-app-bar__row {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
-}
 
-// Paper content
-.smui-paper__content {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
-// Autocomplete control width
-.smui-autocomplete {
-  width: 30% !important;
-}
-
-.mdc-text-field {
-  width: 100% !important;
-}
-
-// Autocomplete input text
-.mdc-text-field__input {
-  font-family: 'UbuntuLight' !important;
-  color: $primary_bg !important;
-}
-
-// Autocomplete floating label text
-.mdc-floating-label {
-  font-family: 'UbuntuLight' !important;
-}
-
-// Autocomplete floating label middle
-.mdc-notched-outline__notch {
-  border-left-width: 0px !important;
-  border-right-width: 0px !important;
-}
-
-// Autocomplete dropdown menu root 
-.smui-autocomplete__menu {
-  width: 75% !important;
-}
-
-// Autocomplete dropdown menu
-.mdc-deprecated-list {
-  background-color: $primary_bg !important;
-}
-
-// Autocomplete dropdown menu text
-.mdc-deprecated-list-item__text {
-  font-family: 'UbuntuLight' !important;
-  color: $text_color !important;
-  opacity: 1 !important;
-}
-
-// Autocomplete dropdown menu item
-.mdc-deprecated-list-item {
-  &:hover {
-    filter: brightness(175%) !important;
+  // TopAppBar logo
+  .mdc-top-app-bar__section > img {
+    margin-top: 1px !important;
   }
-}
 
-// Layout grid
-.mdc-layout-grid {
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-}
+  // TopAppBar social media icons
+  .mdc-top-app-bar__section > a {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
 
-// Tab bar
-.mdc-tab-bar {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  width: auto !important;
-  background-color: $primary_bg !important;
-  border-radius: 6px !important;
+  // TopAppBar menu containier
+  #menu {
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      max-width: 40% !important;
+    }
 
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
+    // sm
+    @media only screen and (min-width: 640px) {
+      max-width: 40% !important;
+    }
+
+    // md
+    @media only screen and (min-width: 768px) {
+      max-width: 55% !important;
+    }
+    // lg
+    @media only screen and (min-width: 1024px) {
+      max-width: 75% !important;
+    }
+  }
+
+  // Switch handle
+  .mdc-switch__handle {
+    background-color: $primary_bg !important;
+  }
+
+  // DataTable
+  .mdc-data-table {
+    margin-bottom: 2rem;
+    border-width: 0px !important;
+  }
+
+  // DataTable header
+  .mdc-data-table__header-row > th {
+    background-color: $primary_bg !important;
+    text-align: center !important;
+  }
+
+  // DataTable header text
+  .mdc-data-table__header-cell-wrapper, .mdc-data-table__header-cell {
+    font-family: 'NinKid' !important;
+
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      font-size: medium !important;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+    }
+
+    // sm
+    @media only screen and (min-width: 640px) {
+      font-size: large !important;
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+    }
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      font-size: x-large !important;
+      min-width: 100px !important;
+      // default padding values
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  // DataTable data row
+  .mdc-data-table__row:hover {
+      filter: brightness(80%);
+  }
+
+  // DataTable data cells
+  .mdc-data-table__cell, .mdc-data-table__cell--numeric {
+    font-family: 'NinKid' !important;
+    background-color: $secondary_bg;
+    text-align: center !important;
+    align-items: center !important;
+
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      font-size: medium !important;
+    }
+
+    // md
+    @media only screen and (min-width: 768px) {
+      font-size: large !important;
+    }
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      font-size: large !important;
+    }
+  }
+
+  // DataTable non-numeric data cells (font digit padding bailout)
+  .mdc-data-table__cell {
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+    }
+
+    // sm
+    @media only screen and (min-width: 640px) {
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+    }
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      // default values
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  // DataTable numeric data cells (font digit padding bailout)
+  .mdc-data-table__cell--numeric {
+    padding-bottom: 9px !important;
+    padding-top: 5px !important;
+  }
+
+  // Accordion title and content text
+  .smui-accordion__header__title, .smui-paper__content {
+    font-family: 'UbuntuLight' !important;
+  }
+
+  // Accordion title text - Tailwind's default media breakpoints
+  .smui-accordion__header__title {
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      font-size: small !important;
+    }
+
+    // sm
+    @media only screen and (min-width: 640px) {
+      font-size: small !important;
+    }
+    
+    // md
+    @media only screen and (min-width: 768px) {
+      font-size: large !important;
+    }
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      font-size: larger !important;
+    }
+  }
+
+  // Paper title
+  .smui-paper__title {
+    font-family: 'NinKid' !important;
+    font-size: xx-large !important;
+    font-weight: bold !important;
+    color: $text_color !important;
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      padding-bottom: 10px !important;
+    }
+  }
+
+  // Paper content
+  .smui-paper__content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  // Autocomplete control width
+  .smui-autocomplete {
+    width: 30% !important;
+  }
+
+  .mdc-text-field {
+    width: 100% !important;
+  }
+
+  // Autocomplete input text
+  .mdc-text-field__input {
+    font-family: 'UbuntuLight' !important;
+  }
+
+  // Autocomplete floating label text
+  .mdc-floating-label {
+    font-family: 'UbuntuLight' !important;
+  }
+
+  // Autocomplete floating label middle
+  .mdc-notched-outline__notch {
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+  }
+
+  // Autocomplete dropdown menu root 
+  .smui-autocomplete__menu {
+    width: 75% !important;
+  }
+
+  // Autocomplete dropdown menu text
+  .mdc-deprecated-list-item__text {
+    font-family: 'UbuntuLight' !important;
+    opacity: 1 !important;
+  }
+
+  // Autocomplete dropdown menu item
+  .mdc-deprecated-list-item {
+    &:hover {
+      filter: brightness(150%) !important;
+    }
+  }
+
+  // Layout grid
+  .mdc-layout-grid {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  // Tab bar
+  .mdc-tab-bar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
     width: auto !important;
-    max-width: 100% !important;
-  }
-}
+    border-radius: 6px !important;
 
-// Tab
-.mdc-tab {
-  &:hover {
-    background-color: $secondary_bg !important;
-  }
-
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    min-width: 30px !important;
-    padding-left: 4px !important;
-    padding-right: 4px !important;
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      width: auto !important;
+      max-width: 100% !important;
+    }
   }
 
-  // sm
-  @media only screen and (min-width: 640px) {
-    padding-left: 4px !important;
-    padding-right: 4px !important;
-  }
-  
-  // md
-  @media only screen and (min-width: 768px) {
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-  }
+  // Tab
+  .mdc-tab {
+    &:hover {
+      background-color: $secondary_bg !important;
+    }
 
-  // lg
-  @media only screen and (min-width: 1024px) {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      min-width: 30px !important;
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+    }
 
-  // xl
-  @media only screen and (min-width: 1280px) {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-  }
-}
+    // sm
+    @media only screen and (min-width: 640px) {
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+    }
+    
+    // md
+    @media only screen and (min-width: 768px) {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+    }
 
-// Tab ripple - disabled
-.mdc-tab__ripple {
-  max-width: 0px !important;
-}
+    // lg
+    @media only screen and (min-width: 1024px) {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
 
-// Tab indicator underline color
-.mdc-tab-indicator__content {
-  border-top-color: $text_color !important;
-}
-
-// Tab label text
-.mdc-tab__text-label {
-  font-family: 'UbuntuLight' !important;
-  color: $text_color !important;
-
-  // xs (not in tailwind)
-  @media only screen and (max-width: 639px) {
-    font-size: x-small !important;
-    margin-bottom: 2px !important;
-    margin-top: 2px !important;
+    // xl
+    @media only screen and (min-width: 1280px) {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
   }
 
-  // sm
-  @media only screen and (min-width: 640px) {
-    font-size: medium !important;
-    margin-bottom: 4px !important;
-    margin-top: 4px !important;
+  // Tab ripple - disabled
+  .mdc-tab__ripple {
+    max-width: 0px !important;
   }
 
-  // lg
-  @media only screen and (min-width: 1024px) {
-    font-size: x-large !important;
-    margin-bottom: 12px !important;
-    margin-top: 12px !important;
+  // Tab indicator underline color
+  .mdc-tab-indicator__content {
+    border-top-color: $text_color !important;
   }
-}
 
-// Tooltip surface
-.mdc-tooltip__surface {
-  font-family: 'UbuntuLight' !important;
-  background-color: $secondary_bg !important;
-  border-width: 1px !important;
+  // Tab label text
+  .mdc-tab__text-label {
+    font-family: 'UbuntuLight' !important;
+    color: $text_color !important;
+
+    // xs (not in tailwind)
+    @media only screen and (max-width: 639px) {
+      font-size: x-small !important;
+      margin-bottom: 2px !important;
+      margin-top: 2px !important;
+    }
+
+    // sm
+    @media only screen and (min-width: 640px) {
+      font-size: medium !important;
+      margin-bottom: 4px !important;
+      margin-top: 4px !important;
+    }
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      font-size: x-large !important;
+      margin-bottom: 12px !important;
+      margin-top: 12px !important;
+    }
+  }
+
+  // Tooltip surface
+  .mdc-tooltip__surface {
+    font-family: 'UbuntuLight' !important;
+    //background-color: $secondary_bg !important;
+    border-width: 1px !important;
+  }
+
 }
