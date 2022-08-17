@@ -16,6 +16,7 @@ The code utilizes:
 - [ESLint](https://eslint.org/)
 - [Prisma](https://www.prisma.io/) (ORM)
 - [Svelte Material UI](https://sveltematerialui.com/) components (Svelte components)
+- [svelte-carousel](https://github.com/vadimkorr/svelte-carousel)
 - [TailwindCSS](https://tailwindcss.com/) (styling)
 
 # How to run
