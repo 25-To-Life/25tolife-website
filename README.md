@@ -23,7 +23,7 @@ The code utilizes:
 
 ## Configuration
 
-Make sure you have Node.js installed (v16.15.1 or newer):
+Make sure you have Node.js installed (v16.9 or newer):
 
 ```
 node -v
