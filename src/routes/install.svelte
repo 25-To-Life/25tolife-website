@@ -29,7 +29,7 @@
                             </p>
                             <div class="flex flex-row justify-center items-center w-1/3 mx-4 sm:mx-1">
                                 <a href="https://cdn.phoenixnetwork.net/updater/versions/client/Launcher/PhoenixInstaller.exe" class="my-1 md:my-2 items-end">
-                                    <button class="font-body text-white dark:text-primary-dark sm:text-xl bg-accent-primary-light hover:bg-accent-secondary-light 
+                                    <button class="font-body transition text-white dark:text-primary-dark sm:text-xl bg-accent-primary-light hover:bg-accent-secondary-light
                                         dark:bg-accent-primary-dark dark:hover:bg-accent-secondary-dark px-4 py-2 rounded-md shadow-md">
                                         Download
                                     </button>

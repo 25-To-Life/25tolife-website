@@ -24,17 +24,17 @@
 <!-- Theme wrapper -->
 <div class:dark={darkMode} class:light={!darkMode}>
     <!-- Nav bar -->
-    <div class="font-body
-        from-[#d9a865] via-[#edb05c] to-[#a8631e] 
-        bg-gradient-to-br dark:from-[#263065] dark:via-violet-500 dark:to-pink-300">
+    <div class="font-body bg-gradient-to-br
+        from-[#d9a865] via-[#edb05c] to-[#a8631e]
+        dark:from-[#263065] dark:via-sky-600 dark:to-cyan-500"
+    >
         <!--Sticky nav bar-->
         <TopAppBar variant="fixed" color="primary">
             <Row>
                 <Section>
-                    <img src='/src/lib/assets/25 logo.png'
-                        alt='25 To Life logo'
-                        class="w-1/4 h-auto lg:w-1/5 xl:w-1/6 px-0 sm:px-4"
-                    >
+                    <a href="/" class="w-1/4 lg:w-1/5 xl:w-1/6 h-auto px-0 sm:px-4 hover:brightness-90">
+                        <img src='/src/lib/assets/25 logo.png' alt='25 To Life logo'>
+                    </a>
                     <ul id="menu" class="font-header text-sm sm:text-xl md:text-2xl text-primary-light dark:text-primary-dark">
                         <li class="inline">
                             <a href="/" 
@@ -120,7 +120,7 @@
     <div class="flex flex-row justify-center text-sm shadow-top dark:shadow-none
         text-primary-light dark:text-primary-dark bg-bg-primary-light dark:bg-bg-primary-dark p-3">
         <div class="flex flex-row m-auto items-center py-5">
-            <a href="https://phoenixnetwork.net" class="mr-4">
+            <a href="https://phoenixnetwork.net" class="mr-4 hover:brightness-90">
                 <img src='/src/lib/assets/Phoenix_logo.png' 
                     alt='Phoenix Network logo'
                     class="w-full h-auto"
