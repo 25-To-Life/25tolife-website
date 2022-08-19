@@ -46,19 +46,21 @@
                                 <!-- Name -->
                                 <div class="flex flex-row font-header text-4xl sm:text-5xl md:text-7xl xl:text-8xl text-primary-light dark:text-primary-dark">
                                     {#if player.clan_tag != null}
-                                        <div class="flex flex-row items-center">
-                                            <Wrapper>
-                                                <h1 class="font-body text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mr-2 xl:mr-5">
-                                                    [{player.clan_tag}]
-                                                </h1>
-                                                <Tooltip>Clan {player.clan_tag}</Tooltip>
-                                            </Wrapper>
-                                            <h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-7xl pb-2 xl:pb-6">
-                                                {player.username}
+                                    <div class="flex flex-row items-center">
+                                        <Wrapper>
+                                            <h1 class="font-body text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mr-2 xl:mr-5">
+                                                [{player.clan_tag}]
                                             </h1>
-                                        </div>
+                                            <Tooltip>Clan {player.clan_tag}</Tooltip>
+                                        </Wrapper>
+                                        <h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-7xl pb-2 xl:pb-6">
+                                            {player.username}
+                                        </h1>
+                                    </div>
                                     {:else}
-                                        <h1>{player.username}</h1>
+                                    <h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-7xl pb-2 xl:pb-6">
+                                        {player.username}
+                                    </h1>
                                     {/if}
                                     <div class="flex flex-col justify-center items-center text-primary-light dark:text-primary-dark mx-2 xl:mx-5">
                                         <!-- Icons row -->
