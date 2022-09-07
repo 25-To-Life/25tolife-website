@@ -15,7 +15,6 @@ model users {
   id            Int      @id @unique
   pid           Int      @unique
   username      String   @unique
-  country       String?
   clan_tag      String?
   stats         stats?
   friends       friends[]
