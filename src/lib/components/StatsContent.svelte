@@ -346,6 +346,46 @@
                     />
                 </Cell>
                 {/if}
+                <!-- Team kills -->
+                {#if activeTab == 'Law Enforcement'}
+                <Cell span={6}>
+                    <Stat name={'Team kills'} value={stats.law_teamkills}
+                        desc="Team kills committed as law enforcement"
+                    />
+                </Cell>
+                {:else if activeTab == 'Criminals'}
+                <Cell span={6}>
+                    <Stat name={'Team kills'} value={stats.crim_teamkills}
+                        desc="Team kills committed as criminals"
+                    />
+                </Cell>
+                {:else}
+                <Cell span={6}>
+                    <Stat name={'Team kills'} value={stats.crim_teamkills + stats.law_teamkills}
+                        desc="Total team kills committed"
+                    />
+                </Cell>
+                {/if}
+                <!-- Team deaths -->
+                {#if activeTab == 'Law Enforcement'}
+                <Cell span={6}>
+                    <Stat name={'Team deaths'} value={stats.law_teamkilled}
+                        desc="Team deaths suffered as law enforcement"
+                    />
+                </Cell>
+                {:else if activeTab == 'Criminals'}
+                <Cell span={6}>
+                    <Stat name={'Team deaths'} value={stats.crim_teamkilled}
+                        desc="Team deaths suffered as criminals"
+                    />
+                </Cell>
+                {:else}
+                <Cell span={6}>
+                    <Stat name={'Team deaths'} value={stats.crim_teamkilled + stats.law_teamkilled}
+                        desc="Total team deaths suffered"
+                    />
+                </Cell>
+                {/if}
             </LayoutGrid>
         </StatRow>
     </div>

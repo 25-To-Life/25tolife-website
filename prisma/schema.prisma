@@ -57,10 +57,10 @@ model stats {
   crim_suicides        Int?
   law_headshots        Int?
   crim_headshots       Int?
-  stat16               Int?
-  stat17               Int?
-  stat18               Int?
-  stat19               Int?
+  law_teamkills        Int?
+  crim_teamkills       Int?
+  law_teamkilled       Int?
+  crim_teamkilled      Int?
   law_hostages_killed  Int?
   crim_hostages_killed Int?
   law_apprehensions    Int?
