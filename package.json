@@ -9,7 +9,8 @@
 		"prepare": "svelte-kit sync && npm run smui-theme-light && npm run smui-theme-dark",
 		"lint": "eslint .",
 		"smui-theme-light": "smui-theme compile static/smui.css -i src/theme",
-		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark"
+		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark",
+		"start": "set PORT=7878 && cd ./build && node index.js"
 	},
 	"devDependencies": {
 		"@smui-extra/accordion": "^6.0.0",
