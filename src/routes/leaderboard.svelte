@@ -22,8 +22,8 @@
         Cell,
         Label,
     } from '@smui/data-table';
-    import Rank from '../lib/components/Rank.svelte';
-    import Side from '../lib/components/Side.svelte';
+    import Rank from '../lib/Rank.svelte';
+    import Side from '../lib/Side.svelte';
     
     // player list
     export let players;

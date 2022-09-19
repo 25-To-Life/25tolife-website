@@ -3,7 +3,7 @@
     export let slide;
 
     // Image file path
-    const imgPath = `src/lib/assets/carousel/${slide.image}`;
+    const imgPath = `/carousel/${slide.image}`;
     // Url flag
     const renderUrl = slide.url != null && slide.url != '';
 </script>

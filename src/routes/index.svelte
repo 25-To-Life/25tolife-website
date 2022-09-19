@@ -19,7 +19,7 @@
     import { onMount } from 'svelte';
 
 	// Custom imports
-    import CarouselSlide from '../lib/components/CarouselSlide.svelte';
+    import CarouselSlide from '../lib/CarouselSlide.svelte';
 
     // Props
     export let slides;

@@ -17,7 +17,7 @@
 <script>
     import Autocomplete from '@smui-extra/autocomplete';
     import LayoutGrid, { Cell } from '@smui/layout-grid';
-    import TopPlayerCard from '../../lib/components/TopPlayerCard.svelte';
+    import TopPlayerCard from '../../lib/TopPlayerCard.svelte';
 
     // UI states
 

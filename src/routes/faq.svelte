@@ -1,5 +1,5 @@
 <script>
-    import FaqCard from "../lib/components/FaqCard.svelte";
+    import FaqCard from "../lib/FaqCard.svelte";
     // QA data
     const QAs = [
         {

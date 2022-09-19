@@ -5,11 +5,11 @@
     export let rating;
 
     const starIcons = [
-        '/src/lib/assets/icons/Star1.png',
-        '/src/lib/assets/icons/Star2.png',
-        '/src/lib/assets/icons/Star3.png',
-        '/src/lib/assets/icons/Star4.png',
-        '/src/lib/assets/icons/Star5.png',
+        '/icons/Star1.PNG',
+        '/icons/Star2.PNG',
+        '/icons/Star3.PNG',
+        '/icons/Star4.PNG',
+        '/icons/Star5.PNG',
     ];
 </script>
 

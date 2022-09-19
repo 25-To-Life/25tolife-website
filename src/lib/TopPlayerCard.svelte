@@ -9,7 +9,7 @@
     const path = `/stats/${player.username}`;
 
     // rank icon path
-    const iconPath = `/src/lib/assets/icons/Rank${rank}.png`;
+    const iconPath = `/icons/Rank${rank}.png`;
 
     // wins
     const wins = player.stats.law_victories + player.stats.crim_victories;

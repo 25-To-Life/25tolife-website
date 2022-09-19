@@ -6,10 +6,10 @@
     import Tooltip, { Wrapper } from '@smui/tooltip';
 
     // Custom imports
-    import Rank from '../../lib/components/Rank.svelte';
-    import RatingIcon from '../../lib/components/RatingIcon.svelte';
-    import Side from '../../lib/components/Side.svelte';
-    import StatsContent from '../../lib/components/StatsContent.svelte';
+    import Rank from '../../lib/Rank.svelte';
+    import RatingIcon from '../../lib/RatingIcon.svelte';
+    import Side from '../../lib/Side.svelte';
+    import StatsContent from '../../lib/StatsContent.svelte';
     
     // tab state
     let activeTab = 'Total';
@@ -104,8 +104,8 @@
         <div class="flex flex-col justify-center items-center mt-[5rem] text-primary-light dark:text-primary-dark">
             <div class="flex flex-col justify-center items-center mb-[100px]">
                 <a href="/" class="flex hover:brightness-90 justify-center">
-                    <img src='/src/lib/assets/25 logo.png'
-                        alt='25 To Life logo'
+                    <img src='/25 logo.png'
+                        alt='25 To Life Classic logo'
                         class="mt-[50px] mb-9 mx-4 w-3/4"
                     >
                 </a>

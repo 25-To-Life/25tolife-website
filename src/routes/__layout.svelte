@@ -33,7 +33,7 @@
             <Row>
                 <Section>
                     <a href="/" class="w-1/4 lg:w-1/5 xl:w-1/6 h-auto px-0 sm:px-4 hover:brightness-90">
-                        <img src='/src/lib/assets/25 logo.png' alt='25 To Life logo'>
+                        <img src='/25 logo.png' alt='25 To Life logo'>
                     </a>
                     <ul id="menu" class="font-header text-xs sm:text-md md:text-lg lg:text-xl xl:text-2xl text-primary-light dark:text-primary-dark">
                         <li class="inline">
@@ -85,12 +85,12 @@
                         <div class="flex flex-row items-center mr-[25px] sm:mr-[50px]">
                             <Switch bind:checked={darkMode} color="secondary" icons={false} />
                             {#if !darkMode}
-                            <img src='/src/lib/assets/icons/badge_icon.png'
+                            <img src='/icons/badge_icon.png'
                                 alt='Badge icon'
                                 class="w-6 h-6"
                             >
                             {:else}
-                            <img src='/src/lib/assets/icons/pistol_icon.png'
+                            <img src='/icons/pistol_icon.png'
                                 alt='Pistol icon'
                                 class="w-6 h-6"
                             >
@@ -99,7 +99,7 @@
                             
                         <a href="https://discord.gg/eKKhz4sKRS" target="_blank" class="w-7 lg:w-8 w-min-[10px] h-min-[10px] mr-2 sm:mr-4 md:mr-7
                             transition ease-in-out delay-50 hover:-translate-1 hover:scale-125 duration-200">
-                            <img src='/src/lib/assets/Discord-Logo-White.png'
+                            <img src='/Discord-Logo-White.png'
                                 alt='25 To Life: Classic Discord'
                                 class="w-7 lg:w-8"
                             >
@@ -107,7 +107,7 @@
                         
                         <a href="https://github.com/michal-kapala/25tolife-website" target="_blank" class="w-6 md:w-7 lg:w-8 w-min-[10px] h-min-[10px] mr-3
                             transition ease-in-out delay-50 hover:-translate-1 hover:scale-125 duration-200">
-                            <img src='/src/lib/assets/GitHub-Mark-Light-32px.png'
+                            <img src='/GitHub-Mark-Light-32px.png'
                                 alt='25 To Life: Classic GitHub'
                                 class="w-6 md:w-7 lg:w-8"
                             >
@@ -128,7 +128,7 @@
         text-primary-light dark:text-primary-dark bg-bg-primary-light dark:bg-bg-primary-dark p-3">
         <div class="flex flex-row m-auto items-center py-5">
             <a href="https://phoenixnetwork.net" class="mr-4 hover:brightness-90">
-                <img src='/src/lib/assets/Phoenix_logo.png' 
+                <img src='/Phoenix_logo.png' 
                     alt='Phoenix Network logo'
                     class="w-full h-auto"
                 >

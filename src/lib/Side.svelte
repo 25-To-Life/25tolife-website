@@ -28,7 +28,7 @@
 {:else if (winsDraw && criminalTime) || (!winsDraw && criminalWins)}
 <Wrapper>
     <div class="flex flex-row justify-center items-center">
-        <img src='/src/lib/assets/icons/pistol_icon.png'
+        <img src='/icons/pistol_icon.png'
             alt='Pistol icon'
             class={iconStyle}
         >
@@ -38,7 +38,7 @@
 {:else}
 <Wrapper>
     <div class="flex flex-row justify-center items-center">
-        <img src='/src/lib/assets/icons/badge_icon.png'
+        <img src='/icons/badge_icon.png'
             alt='Badge icon'
             class={iconStyle}
         >

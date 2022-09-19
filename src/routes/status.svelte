@@ -38,8 +38,8 @@
     <!-- Headlines -->
     <div class="flex flex-col justify-center items-center mt-[6rem] md:mt-[7rem]">
         <a href="/" class="flex hover:brightness-90 justify-center">
-            <img src='/src/lib/assets/25 logo.png'
-                alt='25 To Life logo'
+            <img src='/25 logo.png'
+                alt='25 To Life Classic logo'
                 class="mt-[50px] mb-9 mx-4 w-3/4"
             >
         </a>

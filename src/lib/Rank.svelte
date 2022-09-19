@@ -7,16 +7,16 @@
     export let hashed;
 
     const rankIcons = [
-        '/src/lib/assets/icons/Rank1.png',
-        '/src/lib/assets/icons/Rank2.png',
-        '/src/lib/assets/icons/Rank3.png',
-        '/src/lib/assets/icons/Rank4.png',
-        '/src/lib/assets/icons/Rank5.png',
-        '/src/lib/assets/icons/Rank6.png',
-        '/src/lib/assets/icons/Rank7.png',
-        '/src/lib/assets/icons/Rank8.png',
-        '/src/lib/assets/icons/Rank9.png',
-        '/src/lib/assets/icons/Rank10.png'
+        '/icons/Rank1.png',
+        '/icons/Rank2.png',
+        '/icons/Rank3.png',
+        '/icons/Rank4.png',
+        '/icons/Rank5.png',
+        '/icons/Rank6.png',
+        '/icons/Rank7.png',
+        '/icons/Rank8.png',
+        '/icons/Rank9.png',
+        '/icons/Rank10.png'
     ];
 </script>
 
