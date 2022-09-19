@@ -35,7 +35,7 @@
                     <a href="/" class="w-1/4 lg:w-1/5 xl:w-1/6 h-auto px-0 sm:px-4 hover:brightness-90">
                         <img src='/src/lib/assets/25 logo.png' alt='25 To Life logo'>
                     </a>
-                    <ul id="menu" class="font-header text-sm sm:text-xl md:text-2xl text-primary-light dark:text-primary-dark">
+                    <ul id="menu" class="font-header text-xs sm:text-md md:text-lg lg:text-xl xl:text-2xl text-primary-light dark:text-primary-dark">
                         <li class="inline">
                             <a href="/" 
                                 on:click={() => menuSelect = 1}
@@ -70,6 +70,13 @@
                                 class:selected="{menuSelect === 5}"
                                 class="hover:text-accent-primary-light dark:hover:text-white ml-4 "
                             >FAQ</a>
+                        </li>
+                        <li class="inline">
+                            <a href="/status" 
+                                on:click={() => menuSelect = 6}
+                                class:selected="{menuSelect === 6}"
+                                class="hover:text-accent-primary-light dark:hover:text-white ml-4 "
+                            >STATUS</a>
                         </li>
                     </ul>
                 </Section>
