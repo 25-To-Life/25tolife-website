@@ -35,6 +35,8 @@ Create `.env` file with `DATABASE_URL` variable containing SQLite connection str
 DATABASE_URL="file:<relative or absolute sqlite file path>"
 ```
 
+Add `LIVE_API_URL` with the base URL of game's web API.
+
 ## Installation
 
 1. Install dependencies:
@@ -57,6 +59,23 @@ npm run prepare
 
 ## Running
 
+### Development
+
+Start in development mode:
 ```
 npm run dev
+```
+### Production
+
+Build the project:
+```
+npm run build
+```
+Optionally preview the build:
+```
+npm run preview
+```
+Start in production mode:
+```
+npm run start
 ```
