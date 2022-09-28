@@ -11,17 +11,26 @@
     import Side from '../../lib/Side.svelte';
     import StatsContent from '../../lib/StatsContent.svelte';
     
-    // tab state
-    let activeTab = 'Total';
+    // faction state
+    let factionTab = 'Total';
+
+    // platform state
+    let platformTab = 'PC';
     
     // player data
     export let player;
 
-    // player rank
-    export let rank;
+    // player PC rank
+    export let rankPC;
 
-    // Available tabs
-    const tabs = ['Total', 'Criminals', 'Law Enforcement'];
+    // player PS2 rank
+    export let rankPS2;
+
+    // Available platform tabs
+    const platformTabs = ['PC', 'PS2'];
+
+    // Available faction tabs
+    const factionTabs = ['Total', 'Criminals', 'Law Enforcement'];
     
     // page title
     const title = player != null ? player.username : '404';
@@ -42,6 +51,19 @@
                     <!-- Stats card -->
                     <Paper color="primary">
                         <div class="flex flex-col items-center">
+                            <!-- Platform tab bar -->
+                            <div class="flex flex-col justify-center items-center sm:mt-2 w-full">
+                                <TabBar tabs={platformTabs} let:tab bind:active={platformTab}>
+                                    <Tab {tab} minWidth>
+                                        <Label>
+                                            <div class="xl:text-3xl">
+                                                {tab}
+                                            </div>
+                                        </Label>
+                                    </Tab>
+                                </TabBar>
+                            </div>
+                            <!-- Header bar -->
                             <div class="flex flex-row justify-center items-center mt-2 xl:mt-4 xl:mb-8 w-full">
                                 <!-- Name -->
                                 <div class="flex flex-row font-header text-4xl sm:text-5xl md:text-7xl xl:text-8xl text-primary-light dark:text-primary-dark">
@@ -66,19 +88,26 @@
                                         <!-- Icons row -->
                                         <div class="flex flex-row items-center mx-1">
                                             <div class="mr-1">
-                                                <Rank {rank} hashed />    
+                                                <Rank rank={platformTab === "PC" ? rankPC : rankPS2} hashed />    
                                             </div>
                                             <div class="mr-1">
-                                                <RatingIcon rating={player.stats.ranking} />
+                                                <RatingIcon 
+                                                    rating={platformTab === "PC"
+                                                        ? player.stats_pc.ranking
+                                                        : player.stats_ps2.ranking}
+                                                />
                                             </div>
-                                            <Side {player} hyphened={false}/>
+                                            <Side hyphened={false}
+                                                stats={platformTab === "PC" ? player.stats_pc : player.stats_ps2}
+                                            />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Tab bar -->
+                            
+                            <!-- Faction tab bar -->
                             <div class="flex flex-col justify-center items-center sm:mt-2 w-full">
-                                <TabBar tabs={tabs} let:tab bind:active={activeTab}>
+                                <TabBar tabs={factionTabs} let:tab bind:active={factionTab}>
                                     <Tab {tab} minWidth>
                                         <Label>
                                             <div class="xl:text-3xl">
@@ -90,7 +119,7 @@
                             </div>
                             <!-- Tab content -->
                             <div class="flex flex-col xl:w-3/4 w-full">
-                                <StatsContent {player} {activeTab} />
+                                <StatsContent {factionTab} stats={platformTab === "PC" ? player.stats_pc : player.stats_ps2} />
                             </div>
                         </div>
                     </Paper>

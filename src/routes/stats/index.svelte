@@ -27,7 +27,8 @@
     // player names for autocompletion
     let autocompleted = [];
 
-    players.map(player => {
+    // player set is the same on PC and PS2
+    players.pc.map(player => {
         autocompleted.push(player.username);
     });
     autocompleted.sort();
@@ -35,8 +36,11 @@
     // input text
     let input = '';
 
-    // top 9 players
-    let topPlayers = players.slice(0,9);
+    // top 9 pc players
+    let topPcPlayers = players.pc.slice(0,3);
+
+    // top 9 ps2 players
+    let topPs2Players = players.ps2.slice(0,3);
 
     // Handlers
     function handleSearch() {
@@ -83,11 +87,22 @@
                 {/if}
             </a>
         </div>
+        <h2 class="text-2xl sm:text-4xl md:text-5xl mt-4">Top 3 (PC)</h2>
         <div class="flex flex-row justify-center items-center">
             <LayoutGrid>
-                {#each topPlayers as player, i}
+                {#each topPcPlayers as player, i}
                     <Cell>
-                        <TopPlayerCard {player} rank={i+1} />
+                        <TopPlayerCard {player} stats={player.stats_pc} rank={i+1} />
+                    </Cell>
+                {/each}
+            </LayoutGrid>
+        </div>
+        <h2 class="text-2xl sm:text-4xl md:text-5xl">Top 3 (PS2)</h2>
+        <div class="flex flex-row justify-center items-center mb-5">
+            <LayoutGrid>
+                {#each topPs2Players as player, i}
+                    <Cell>
+                        <TopPlayerCard {player} stats={player.stats_ps2} rank={i+1} />
                     </Cell>
                 {/each}
             </LayoutGrid>

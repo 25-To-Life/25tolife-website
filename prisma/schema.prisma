@@ -16,7 +16,8 @@ model users {
   pid           Int      @unique
   username      String   @unique
   clan_tag      String?
-  stats         stats?
+  stats_pc      stats_pc?
+  stats_ps2     stats_ps2?
   friends       friends[]
 }
 
@@ -37,8 +38,102 @@ model message {
   msg String @unique
 }
 
-// 'stats' SQLite model
-model stats {
+// 'stats_pc' SQLite model
+model stats_pc {
+  id                   Int    @id @unique
+  user                 users  @relation(fields: [pid], references: [pid])
+  pid                  Int    @unique
+  ranking              Int?
+  law_victories        Int?
+  law_defeats          Int?
+  law_draws            Int?
+  crim_victories       Int?
+  crim_defeats         Int?
+  crim_draws           Int?
+  law_kills            Int?
+  crim_kills           Int?
+  law_deaths           Int?
+  crim_deaths          Int?
+  law_suicides         Int?
+  crim_suicides        Int?
+  law_headshots        Int?
+  crim_headshots       Int?
+  law_teamkills        Int?
+  crim_teamkills       Int?
+  law_teamkilled       Int?
+  crim_teamkilled      Int?
+  law_hostages_killed  Int?
+  crim_hostages_killed Int?
+  law_apprehensions    Int?
+  crim_apprehended     Int?
+  law_shots_fired      Int?
+  crim_shots_fired     Int?
+  law_shots_hit        Int?
+  crim_shots_hit       Int?
+  law_time             Int?
+  crim_time            Int?
+  crim_goods           Int?
+  law_evidence         Int?
+  cmn_tags             Int?
+  law_kills_melee      Int?
+  law_kills_grenade    Int?
+  law_kills_nonauto    Int?
+  law_kills_mp         Int?
+  law_kills_ar         Int?
+  law_kills_shotgun    Int?
+  crim_kills_melee     Int?
+  crim_kills_grenade   Int?
+  crim_kills_nonauto   Int?
+  crim_kills_mp        Int?
+  crim_kills_ar        Int?
+  crim_kills_shotgun   Int?
+  law_hdeaths_melee    Int?
+  law_hdeaths_grenade  Int?
+  law_hdeaths_nonauto  Int?
+  law_hdeaths_mp       Int?
+  law_hdeaths_ar       Int?
+  law_hdeaths_shotgun  Int?
+  crim_hdeaths_melee   Int?
+  crim_hdeaths_grenade Int?
+  crim_hdeaths_nonauto Int?
+  crim_hdeaths_mp      Int?
+  crim_hdeaths_ar      Int?
+  crim_hdeaths_shotgun Int?
+  law_deaths_melee     Int?
+  law_deaths_grenade   Int?
+  law_deaths_nonauto   Int?
+  law_deaths_mp        Int?
+  law_deaths_ar        Int?
+  law_deaths_shotgun   Int?
+  crim_deaths_melee    Int?
+  crim_deaths_grenade  Int?
+  crim_deaths_nonauto  Int?
+  crim_deaths_mp       Int?
+  crim_deaths_ar       Int?
+  crim_deaths_shotgun  Int?
+  cmn_tag_wins         Int?
+  cmn_tag_games        Int?
+  cmn_tag_time         Int?
+  cmn_war_wins         Int?
+  cmn_war_games        Int?
+  cmn_war_time         Int?
+  cmn_robbery_wins     Int?
+  cmn_robbery_games    Int?
+  cmn_robbery_time     Int?
+  cmn_raid_wins        Int?
+  cmn_raid_games       Int?
+  cmn_raid_time        Int?
+  stat81               Int?
+  stat82               Int?
+  stat83               Int?
+  stat84               Int?
+  stat85               Int?
+  stat86               Int?
+  stat87               Int?
+}
+
+// 'stats_ps2' SQLite model
+model stats_ps2 {
   id                   Int    @id @unique
   user                 users  @relation(fields: [pid], references: [pid])
   pid                  Int    @unique

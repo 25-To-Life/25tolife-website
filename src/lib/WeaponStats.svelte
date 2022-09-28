@@ -6,73 +6,16 @@
     // stat data
     export let stats;
     // total/criminals/LE tab
-    export let activeTab;
+    export let factionTab;
     // weapon category tab
     export let activeWeaponTab;
 
-    // K/D - criminals
-    const crim_kd_ar = stats.crim_deaths_ar > 0
-        ? (stats.crim_kills_ar / stats.crim_deaths_ar).toFixed(2)
-        : 'Perfect';
-    const crim_kd_mp = stats.crim_deaths_mp > 0
-        ? (stats.crim_kills_mp / stats.crim_deaths_mp).toFixed(2)
-        : 'Perfect';
-    const crim_kd_nonauto = stats.crim_deaths_nonauto > 0
-        ? (stats.crim_kills_nonauto / stats.crim_deaths_nonauto).toFixed(2)
-        : 'Perfect';
-    const crim_kd_shotgun = stats.crim_deaths_shotgun > 0
-        ? (stats.crim_kills_shotgun / stats.crim_deaths_shotgun).toFixed(2)
-        : 'Perfect';
-    const crim_kd_melee = stats.crim_deaths_melee > 0
-        ? (stats.crim_kills_melee / stats.crim_deaths_melee).toFixed(2)
-        : 'Perfect';
-    const crim_kd_grenade = stats.crim_deaths_grenade > 0
-        ? (stats.crim_kills_grenade / stats.crim_deaths_grenade).toFixed(2)
-        : 'Perfect';
-    // K/D - law enforcement
-    const law_kd_ar = stats.law_deaths_ar > 0
-        ? (stats.law_kills_ar / stats.law_deaths_ar).toFixed(2)
-        : 'Perfect';
-    const law_kd_mp = stats.law_deaths_mp > 0
-        ? (stats.law_kills_mp / stats.law_deaths_mp).toFixed(2)
-        : 'Perfect';
-    const law_kd_nonauto = stats.law_deaths_nonauto > 0
-        ? (stats.law_kills_nonauto / stats.law_deaths_nonauto).toFixed(2)
-        : 'Perfect';
-    const law_kd_shotgun = stats.law_deaths_shotgun > 0
-        ? (stats.law_kills_shotgun / stats.law_deaths_shotgun).toFixed(2)
-        : 'Perfect';
-    const law_kd_melee = stats.law_deaths_melee > 0
-        ? (stats.law_kills_melee / stats.law_deaths_melee).toFixed(2)
-        : 'Perfect';
-    const law_kd_grenade = stats.law_deaths_grenade > 0
-        ? (stats.law_kills_grenade / stats.law_deaths_grenade).toFixed(2)
-        : 'Perfect';
-    // K/D - total
-    const total_deaths_ar = stats.crim_deaths_ar + stats.law_deaths_ar;
-    const total_kd_ar = total_deaths_ar > 0
-        ? ((stats.crim_kills_ar + stats.law_kills_ar) / total_deaths_ar).toFixed(2)
-        : 'Perfect';
-    const total_deaths_mp = stats.crim_deaths_mp + stats.law_deaths_mp;
-    const total_kd_mp = total_deaths_mp > 0
-        ? ((stats.crim_kills_mp + stats.law_kills_mp) / total_deaths_mp).toFixed(2)
-        : 'Perfect';
-    const total_deaths_nonauto = stats.crim_deaths_nonauto + stats.law_deaths_nonauto;
-    const total_kd_nonauto = total_deaths_nonauto > 0
-        ? ((stats.crim_kills_nonauto + stats.law_kills_nonauto) / total_deaths_nonauto).toFixed(2)
-        : 'Perfect';
-    const total_deaths_shotgun = stats.crim_deaths_shotgun + stats.law_deaths_shotgun;
-    const total_kd_shotgun = total_deaths_shotgun > 0
-        ? ((stats.crim_kills_shotgun + stats.law_kills_shotgun) / total_deaths_shotgun).toFixed(2)
-        : 'Perfect';
-    const total_deaths_melee = stats.crim_deaths_melee + stats.law_deaths_melee;
-    const total_kd_melee = total_deaths_melee > 0
-        ? ((stats.crim_kills_melee + stats.law_kills_melee) / total_deaths_melee).toFixed(2)
-        : 'Perfect';
-    const total_deaths_grenade = stats.crim_deaths_grenade + stats.law_deaths_grenade;
-    const total_kd_grenade = total_deaths_grenade > 0
-        ? ((stats.crim_kills_grenade + stats.law_kills_grenade) / total_deaths_grenade).toFixed(2)
-        : 'Perfect';
+    // Math functions
+    function kd(kills, deaths) {
+        return deaths > 0
+            ? (kills / deaths).toFixed(2)
+            : 'Perfect';
+    }
 </script>
 
 <div>
@@ -80,7 +23,7 @@
         <LayoutGrid>
             <!-- Kills -->
             <Cell span={6}>
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                     {#if activeWeaponTab == 'AR'}
                         <Stat name={'Kills'} value={stats.crim_kills_ar}
                             desc="Assault rifle kills as criminals"
@@ -106,7 +49,7 @@
                             desc="Grenade kills as criminals"
                         />
                     {/if}
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                     {#if activeWeaponTab == 'AR'}
                         <Stat name={'Kills'} value={stats.law_kills_ar}
                             desc="Assault rifle kills as law enforcement"
@@ -162,7 +105,7 @@
             </Cell>
             <!-- Deaths -->
             <Cell span={6}>
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                     {#if activeWeaponTab == 'AR'}
                         <Stat name={'Deaths'} value={stats.crim_deaths_ar}
                             desc="Deaths from assault rifles as criminals"
@@ -188,7 +131,7 @@
                             desc="Deaths from grenades as criminals"
                         />
                     {/if}
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                     {#if activeWeaponTab == 'AR'}
                         <Stat name={'Deaths'} value={stats.law_deaths_ar}
                             desc="Deaths from assault rifles as law enforcement"
@@ -244,81 +187,117 @@
             </Cell>
             <!-- K/D -->
             <Cell span={6}>
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                     {#if activeWeaponTab == 'AR'}
-                        <Stat name={'K/D'} value={crim_kd_ar}
+                        <Stat name={'K/D'} 
+                            value={kd(stats.crim_kills_ar, stats.crim_deaths_ar)}
                             desc="Assault rifle kills with/killed by ratio as criminals"
                         />
                     {:else if activeWeaponTab == 'MP'}
-                        <Stat name={'K/D'} value={crim_kd_mp}
+                        <Stat name={'K/D'}
+                            value={kd(stats.crim_kills_mp, stats.crim_deaths_mp)}
                             desc="Machine pistol kills with/killed by ratio as criminals"
                         />
                     {:else if activeWeaponTab == 'SR/pistol'}
-                        <Stat name={'K/D'} value={crim_kd_nonauto}
+                        <Stat name={'K/D'}
+                            value={kd(stats.crim_kills_nonauto, stats.crim_deaths_nonauto)}
                             desc="Sniper rifle and pistol kills with/killed by ratio as criminals"
                         />
                     {:else if activeWeaponTab == 'Shotgun'}
-                        <Stat name={'K/D'} value={crim_kd_shotgun}
+                        <Stat name={'K/D'}
+                            value={kd(stats.crim_kills_shotgun, stats.crim_deaths_shotgun)}
                             desc="Shotgun kills with/killed by ratio as criminals"
                         />
                     {:else if activeWeaponTab == 'Melee'}
-                        <Stat name={'K/D'} value={crim_kd_melee}
+                        <Stat name={'K/D'}
+                            value={kd(stats.crim_kills_melee, stats.crim_deaths_melee)}
                             desc="Melee weapon kills with/killed by ratio as criminals"
                         />
                     {:else}
-                        <Stat name={'K/D'} value={crim_kd_grenade}
-                        desc="Grenade kills with/killed by ratio as criminals"
+                        <Stat name={'K/D'}
+                            value={kd(stats.crim_kills_grenade, stats.crim_deaths_grenade)}
+                            desc="Grenade kills with/killed by ratio as criminals"
                         />
                     {/if}
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                     {#if activeWeaponTab == 'AR'}
-                        <Stat name={'K/D'} value={law_kd_ar}
+                        <Stat name={'K/D'}
+                            value={kd(stats.law_kills_ar, stats.law_deaths_ar)}
                             desc="Assault rifle kills with/killed by ratio as law enforcement"
                         />
                     {:else if activeWeaponTab == 'MP'}
-                        <Stat name={'K/D'} value={law_kd_mp}
+                        <Stat name={'K/D'}
+                            value={kd(stats.law_kills_mp, stats.law_deaths_mp)}
                             desc="Machine pistol kills with/killed by ratio as law enforcement"
                         />
                     {:else if activeWeaponTab == 'SR/pistol'}
-                        <Stat name={'K/D'} value={law_kd_nonauto}
+                        <Stat name={'K/D'}
+                            value={kd(stats.law_kills_nonauto, stats.law_deaths_nonauto)}
                             desc="Sniper rifle and pistol kills with/killed by ratio as law enforcement"
                         />
                     {:else if activeWeaponTab == 'Shotgun'}
-                        <Stat name={'K/D'} value={law_kd_shotgun}
+                        <Stat name={'K/D'}
+                            value={kd(stats.law_kills_shotgun, stats.law_deaths_shotgun)}
                             desc="Shotgun kills with/killed by ratio as law enforcement"
                         />
                     {:else if activeWeaponTab == 'Melee'}
-                        <Stat name={'K/D'} value={law_kd_melee}
+                        <Stat name={'K/D'}
+                            value={kd(stats.law_kills_melee, stats.law_deaths_melee)}
                             desc="Melee weapon kills with/killed by ratio as law enforcement"
                         />
                     {:else}
-                        <Stat name={'K/D'} value={law_kd_grenade}
+                        <Stat name={'K/D'}
+                            value={kd(stats.law_kills_grenade, stats.law_deaths_grenade)}
                             desc="Grenade kills with/killed by ratio as law enforcement"
                         />
                     {/if}
                 {:else}
                     {#if activeWeaponTab == 'AR'}
-                        <Stat name={'K/D'} value={total_kd_ar}
+                        <Stat name={'K/D'}
+                            value={
+                                kd( stats.law_kills_ar + stats.crim_kills_ar,
+                                    stats.law_deaths_ar + stats.crim_deaths_ar)
+                            }
                             desc="Assault rifle kills with/killed by ratio"
                         />
                     {:else if activeWeaponTab == 'MP'}
-                        <Stat name={'K/D'} value={total_kd_mp}
+                        <Stat name={'K/D'}
+                            value={
+                                kd( stats.law_kills_mp + stats.crim_kills_mp,
+                                    stats.law_deaths_mp + stats.crim_deaths_mp)
+                            }
                             desc="Machine pistol kills with/killed by ratio"
                         />
                     {:else if activeWeaponTab == 'SR/pistol'}
-                        <Stat name={'K/D'} value={total_kd_nonauto}
+                        <Stat name={'K/D'}
+                            value={
+                                kd( stats.law_kills_nonauto + stats.crim_kills_nonauto,
+                                    stats.law_deaths_nonauto + stats.crim_deaths_nonauto)
+                            }
                             desc="Sniper rifle and pistol kills with/killed by ratio"
                         />
                     {:else if activeWeaponTab == 'Shotgun'}
-                        <Stat name={'K/D'} value={total_kd_shotgun}
+                        <Stat name={'K/D'}
+                            value={
+                                kd( stats.law_kills_shotgun + stats.crim_kills_shotgun,
+                                    stats.law_deaths_shotgun + stats.crim_deaths_shotgun)
+                            }
                             desc="Shotgun kills with/killed by ratio"
                         />
                     {:else if activeWeaponTab == 'Melee'}
-                        <Stat name={'K/D'} value={total_kd_melee}
+                        <Stat name={'K/D'}
+                            value={
+                                kd( stats.law_kills_melee + stats.crim_kills_melee,
+                                    stats.law_deaths_melee + stats.crim_deaths_melee)
+                            }
                             desc="Melee weapon kills with/killed by ratio"
                         />
                     {:else}
-                        <Stat name={'K/D'} value={total_kd_grenade}
+                        <Stat name={'K/D'}
+                            value={
+                                kd( stats.law_kills_grenade + stats.crim_kills_grenade,
+                                    stats.law_deaths_grenade + stats.crim_deaths_grenade)
+                            }
                             desc="Grenade kills with/killed by ratio"
                         />
                     {/if}
@@ -326,7 +305,7 @@
             </Cell>
             <!-- Deaths holding -->
             <Cell span={6}>
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                     {#if activeWeaponTab == 'AR'}
                         <Stat name={'Deaths holding'} value={stats.crim_hdeaths_ar}
                             desc="Deaths while holding assault rifles as criminals"
@@ -352,7 +331,7 @@
                             desc="Deaths while holding grenades as criminals"
                         />
                     {/if}
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                     {#if activeWeaponTab == 'AR'}
                         <Stat name={'Deaths holding'} value={stats.law_hdeaths_ar}
                             desc="Deaths while holding assault rifles as law enforcement"

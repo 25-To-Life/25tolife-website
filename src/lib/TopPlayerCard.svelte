@@ -1,4 +1,7 @@
 <script>
+    // stats for ranked platform
+    export let stats;
+
     // player data
     export let player;
 
@@ -12,7 +15,7 @@
     const iconPath = `/icons/Rank${rank}.png`;
 
     // wins
-    const wins = player.stats.law_victories + player.stats.crim_victories;
+    const wins = stats.law_victories + stats.crim_victories;
 
     // wins text
     const winsText = wins != 1 ? 'wins' : 'win' ;
@@ -27,8 +30,8 @@
     >
     <div class="flex flex-col text-left lg:ml-1">
         <h2><b>{player.username}</b></h2>
-        <p class="text-sm">Wins: {player.stats.law_victories + player.stats.crim_victories}</p>
-        <p class="text-sm">Ranking: {player.stats.ranking}</p>
+        <p class="text-sm">Wins: {stats.law_victories + stats.crim_victories}</p>
+        <p class="text-sm">Ranking: {stats.ranking}</p>
     </div>
     
 </a>

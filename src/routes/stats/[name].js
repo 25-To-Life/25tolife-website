@@ -10,7 +10,8 @@ export async function GET({ params }) {
             username: name
         },
         include: {
-            stats: true,
+            stats_pc: true,
+            stats_ps2: true,
             friends: false
         }
     });
@@ -20,19 +21,32 @@ export async function GET({ params }) {
             status: 200,
             body: {
                 player: null,
-                rank: null,
+                rankPC: null,
+                rankPS2: null
             }
         }
     }
 
-    // calculate player's rank
-    var higherRated = await prisma.stats.findMany({
+    // calculate player's PC rank
+    var higherRatedPC = await prisma.stats_pc.findMany({
         select: {
             ranking: true,
         },
         where: {
             ranking: {
-                gt: player.stats.ranking,
+                gt: player.stats_pc.ranking,
+            },
+        }
+    });
+
+    // calculate player's PS2 rank
+    var higherRatedPS2 = await prisma.stats_ps2.findMany({
+        select: {
+            ranking: true,
+        },
+        where: {
+            ranking: {
+                gt: player.stats_ps2.ranking,
             },
         }
     });
@@ -41,7 +55,8 @@ export async function GET({ params }) {
         status: 200,
         body: {
             player,
-            rank: higherRated.length + 1,
+            rankPC: higherRatedPC.length + 1,
+            rankPS2: higherRatedPS2.length + 1,
         },
     }
 }

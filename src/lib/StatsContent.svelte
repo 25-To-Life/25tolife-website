@@ -9,13 +9,12 @@
     import StatRow from './StatRow.svelte';
     import PlayedForStat from './PlayedForStat.svelte';
     import WeaponStats from './WeaponStats.svelte';
-    
-    // Player stats data
-    export let player;
-    const stats = player.stats;
 
-    // Active tab
-    export let activeTab;
+    // Faction tab
+    export let factionTab;
+
+    // Active stats
+    export let stats;
 
     // Weapon tabs
     const weapons = ['AR', 'MP', 'SR/pistol', 'Shotgun', 'Melee', 'Grenade'];
@@ -25,78 +24,41 @@
     const gameModes = ['War', 'Tag', 'Robbery', 'Raid'];
     let activeGameModeTab = 'War';
 
-    // Stats - games
-    const crim_games = stats.crim_victories + stats.crim_draws + stats.crim_defeats;
-    const crim_winrate = crim_games > 0
-        ? (stats.crim_victories * 100 / crim_games).toFixed(0)
-        : 'N/A';
-    const law_games = stats.law_victories + stats.law_draws + stats.law_defeats;
-    const law_winrate = law_games > 0
-        ? (stats.law_victories * 100 / law_games).toFixed(0)
-        : 'N/A';
-    const total_victories = stats.crim_victories + stats.law_victories;
-    const total_defeats = stats.crim_defeats + stats.law_defeats;
-    const total_draws = stats.crim_draws + stats.law_draws;
-    const total_games = total_victories + total_defeats + total_draws;
-    const total_winrate = total_games > 0 
-        ? (total_victories * 100 / 
-        (total_games)).toFixed(0)
-        : 'N/A';
-    // Stats - k/d
-    const crim_kd = stats.crim_deaths > 0 
-        ? (stats.crim_kills / stats.crim_deaths).toFixed(2)
+    // Math functions
+    function gamesPlayed(victories, draws, defeats) {
+        return victories + draws + defeats;
+    }
+
+    function winrate(victories, draws, defeats) {
+        const games = victories + draws + defeats;
+        return games > 0
+            ? (victories * 100 / games).toFixed(0)
+            : 'N/A';
+    }
+
+    function winrateMode(wins, games) {
+        return games > 0
+            ? (wins * 100 / games).toFixed(0)
+            : 'N/A';
+    }
+
+    function kd(kills, deaths) {
+        return deaths > 0 
+        ? (kills / deaths).toFixed(2)
         : 'Perfect';
-    const law_kd = stats.law_deaths > 0 
-        ? (stats.law_kills / stats.law_deaths).toFixed(2)
-        : 'Perfect';
-    const total_kd = stats.crim_deaths + stats.law_deaths > 0
-        ? ((stats.crim_kills + stats.law_kills) / (stats.crim_deaths + stats.law_deaths)).toFixed(2)
-        : 'Perfect';
-    // Stats - accuracy
-    const crim_accuracy = stats.crim_shots_fired > 0
-        ? (stats.crim_shots_hit * 100 / stats.crim_shots_fired).toFixed(0)
-        : 'N/A';
-    const law_accuracy = stats.law_shots_fired > 0
-        ? (stats.law_shots_hit * 100 / stats.law_shots_fired).toFixed(0)
-        : 'N/A';
-    const total_shots_hit = stats.crim_shots_hit + stats.law_shots_hit;
-    const total_shots_fired = stats.crim_shots_fired + stats.law_shots_fired;
-    const total_accuracy = total_shots_fired > 0
-        ? (total_shots_hit * 100 / total_shots_fired).toFixed(0)
-        : 'N/A';
-    // Stats - head/fired
-    const crim_head_to_fired = stats.crim_shots_fired > 0 
-        ? (stats.crim_headshots * 100 / stats.crim_shots_fired).toFixed(0)
-        : 'N/A';
-    const law_head_to_fired = stats.law_shots_fired > 0 
-        ? (stats.law_headshots * 100 / stats.law_shots_fired).toFixed(0)
-        : 'N/A';
-    const total_head_to_fired = total_shots_fired > 0 
-        ? ((stats.crim_headshots + stats.law_headshots) * 100 / total_shots_fired).toFixed(0)
-        : 'N/A';
-    // Stats - head/hit
-    const crim_head_to_hit = stats.crim_shots_hit > 0 
-        ? (stats.crim_headshots * 100 / stats.crim_shots_hit).toFixed(0)
-        : 'N/A';
-    const law_head_to_hit = stats.law_shots_hit > 0 
-        ? (stats.law_headshots * 100 / stats.law_shots_hit).toFixed(0)
-        : 'N/A';
-    const total_head_to_hit = total_shots_hit > 0 
-        ? ((stats.crim_headshots + stats.law_headshots) * 100 / total_shots_hit).toFixed(0)
-        : 'N/A';
-    // Stats - game mode winrates
-    const total_war_winrate = stats.cmn_war_games > 0
-        ? (stats.cmn_war_wins * 100 / stats.cmn_war_games).toFixed(0)
-        : 'N/A';
-    const total_tag_winrate = stats.cmn_tag_games > 0
-        ? (stats.cmn_tag_wins * 100 / stats.cmn_tag_games).toFixed(0)
-        : 'N/A';
-    const total_robbery_winrate = stats.cmn_robbery_games > 0
-        ? (stats.cmn_robbery_wins * 100 / stats.cmn_robbery_games).toFixed(0)
-        : 'N/A';
-    const total_raid_winrate = stats.cmn_raid_games > 0
-        ? (stats.cmn_raid_wins * 100 / stats.cmn_raid_games).toFixed(0)
-        : 'N/A';
+    }
+
+    function accuracy(fired, hit) {
+        return fired > 0
+            ? (hit * 100 / fired).toFixed(0)
+            : 'N/A';
+    }
+
+    function headRatio(headshots, shots) {
+        return shots > 0 
+            ? (headshots * 100 / shots).toFixed(0)
+            : 'N/A';
+    }
 </script>
 
 <div class="mt-4 xl:mt-8">
@@ -121,43 +83,56 @@
                 </Cell>
                 <!-- Winrate -->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
-                    <Stat name={'Winrate'} value={crim_winrate} ratio
+                    {#if factionTab == 'Criminals'}
+                    <Stat name={'Winrate'} value={winrate(stats.crim_victories, stats.crim_draws, stats.crim_defeats)} ratio
                         desc="Win percentage as criminals"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
-                    <Stat name={'Winrate'} value={law_winrate} ratio
+                    {:else if factionTab == 'Law Enforcement'}
+                    <Stat name={'Winrate'} value={winrate(stats.law_victories, stats.law_draws, stats.law_defeats)} ratio
                         desc="Win percentage as law enforcement"
                     />
                     {:else}
-                    <Stat name={'Winrate'} value={total_winrate} ratio
+                    <Stat name={'Winrate'}
+                        value={
+                            winrate(
+                                stats.law_victories + stats.crim_victories,
+                                stats.law_draws + stats.crim_draws,
+                                stats.law_defeats + stats.crim_defeats
+                        )}
+                        ratio
                         desc="Total win percentage"
                     />
                     {/if}
                 </Cell>
                 <!-- Games -->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
-                    <Stat name={'Games'} value={crim_games} 
+                    {#if factionTab == 'Criminals'}
+                    <Stat name={'Games'} value={gamesPlayed(stats.crim_victories, stats.crim_draws, stats.crim_defeats)} 
                         desc="Games played as criminals"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
-                    <Stat name={'Games'} value={law_games} 
+                    {:else if factionTab == 'Law Enforcement'}
+                    <Stat name={'Games'} value={gamesPlayed(stats.law_victories, stats.law_draws, stats.law_defeats)} 
                         desc="Games played as law enforcement"
                     />
                     {:else}
-                    <Stat name={'Games'} value={total_games} 
+                    <Stat name={'Games'}
+                        value={
+                            gamesPlayed(
+                                stats.law_victories + stats.crim_victories,
+                                stats.law_draws + stats.crim_draws,
+                                stats.law_defeats + stats.crim_defeats
+                        )}
                         desc="Total games played"
                     />
                     {/if}
                 </Cell>
                 <!-- Wins -->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
+                    {#if factionTab == 'Criminals'}
                     <Stat name={'Wins'} value={stats.crim_victories}
                         desc="Games won as criminals"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                    {:else if factionTab == 'Law Enforcement'}
                     <Stat name={'Wins'} value={stats.law_victories}
                         desc="Games won as law enforcement"
                     />
@@ -169,11 +144,11 @@
                 </Cell>
                 <!-- Draws -->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
+                    {#if factionTab == 'Criminals'}
                     <Stat name={'Draws'} value={stats.crim_draws}
                         desc="Draws as criminals"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                    {:else if factionTab == 'Law Enforcement'}
                     <Stat name={'Draws'} value={stats.law_draws} 
                         desc="Draws as law enforcement"
                     />
@@ -185,11 +160,11 @@
                 </Cell>
                 <!-- Losses -->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
+                    {#if factionTab == 'Criminals'}
                     <Stat name={'Losses'} value={stats.crim_defeats}
                         desc="Games lost as criminals"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                    {:else if factionTab == 'Law Enforcement'}
                     <Stat name={'Losses'} value={stats.law_defeats}
                         desc="Games lost as law enforcement"
                     />
@@ -203,9 +178,9 @@
         </StatRow>
         <StatRow>
             <!-- Time spent -->
-            {#if activeTab == 'Criminals'}
+            {#if factionTab == 'Criminals'}
             <PlayedForStat seconds={stats.crim_time}/>
-            {:else if activeTab == 'Law Enforcement'}
+            {:else if factionTab == 'Law Enforcement'}
             <PlayedForStat seconds={stats.law_time}/>
             {:else}
             <PlayedForStat seconds={stats.crim_time + stats.law_time}/>
@@ -226,13 +201,13 @@
         <StatRow>
             <LayoutGrid>
                 <!-- Kills -->
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                 <Cell>
                     <Stat name={'Kills'} value={stats.crim_kills}
                         desc="Kills as criminal"
                     />
                 </Cell>
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                 <Cell>
                     <Stat name={'Kills'} value={stats.law_kills}
                         desc="Kills as law enforcement"
@@ -247,11 +222,11 @@
                 {/if}
                 <!-- Deaths -->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
+                    {#if factionTab == 'Criminals'}
                     <Stat name={'Deaths'} value={stats.crim_deaths}
                         desc="Deaths as criminal"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                    {:else if factionTab == 'Law Enforcement'}
                     <Stat name={'Deaths'} value={stats.law_deaths} 
                         desc="Deaths as law enforcement"
                     />
@@ -262,33 +237,33 @@
                     {/if}
                 </Cell>
                 <!-- K/D -->
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                 <Cell>
-                    <Stat name={'K/D'} value={crim_kd} 
+                    <Stat name={'K/D'} value={kd(stats.crim_kills, stats.crim_deaths)} 
                         desc="Kills/deaths ratio as criminals"
                     />
                 </Cell>
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                 <Cell>
-                    <Stat name={'K/D'} value={law_kd}
+                    <Stat name={'K/D'} value={kd(stats.law_kills, stats.law_deaths)}
                         desc="Kills/deaths ratio as law enforcement"
                     />
                 </Cell>
                 {:else}
                 <Cell>
-                    <Stat name={'K/D'} value={total_kd}
+                    <Stat name={'K/D'} value={kd(stats.law_kills + stats.crim_kills, stats.law_deaths + stats.crim_deaths)}
                         desc="Kills/deaths ratio"
                     />
                 </Cell>
                 {/if}
                 <!-- Suicides -->
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                 <Cell>
                     <Stat name={'Suicides'} value={stats.crim_suicides} 
                         desc="Suicides as criminals"
                     />
                 </Cell>
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                 <Cell>
                     <Stat name={'Suicides'} value={stats.law_suicides}
                         desc="Suicides as law enforcement"
@@ -302,13 +277,13 @@
                 </Cell>
                 {/if}
                 <!-- Hostage kills -->
-                {#if activeTab == 'Criminals'}
+                {#if factionTab == 'Criminals'}
                 <Cell>
                     <Stat name={'Hostage kills'} value={stats.crim_hostages_killed}
                         desc="Hostages killed as criminal"
                     />
                 </Cell>
-                {:else if activeTab == 'Law Enforcement'}
+                {:else if factionTab == 'Law Enforcement'}
                 <Cell>
                     <Stat name={'Hostage kills'} value={stats.law_hostages_killed}
                         desc="Hostages killed as law enforcement"
@@ -322,13 +297,13 @@
                 </Cell>
                 {/if}
                 <!-- Apprehensions/Apprehended -->
-                {#if activeTab == 'Law Enforcement'}
+                {#if factionTab == 'Law Enforcement'}
                 <Cell>
                     <Stat name={'Apprehensions'} value={stats.law_apprehensions}
                         desc="Apprehensions as law enforcement"
                     />
                 </Cell>
-                {:else if activeTab == 'Criminals'}
+                {:else if factionTab == 'Criminals'}
                 <Cell>
                     <Stat name={'Apprehended'} value={stats.crim_apprehended} 
                         desc="Times player got apprehended as criminals"
@@ -347,13 +322,13 @@
                 </Cell>
                 {/if}
                 <!-- Team kills -->
-                {#if activeTab == 'Law Enforcement'}
+                {#if factionTab == 'Law Enforcement'}
                 <Cell span={6}>
                     <Stat name={'Team kills'} value={stats.law_teamkills}
                         desc="Team kills committed as law enforcement"
                     />
                 </Cell>
-                {:else if activeTab == 'Criminals'}
+                {:else if factionTab == 'Criminals'}
                 <Cell span={6}>
                     <Stat name={'Team kills'} value={stats.crim_teamkills}
                         desc="Team kills committed as criminals"
@@ -367,13 +342,13 @@
                 </Cell>
                 {/if}
                 <!-- Team deaths -->
-                {#if activeTab == 'Law Enforcement'}
+                {#if factionTab == 'Law Enforcement'}
                 <Cell span={6}>
                     <Stat name={'Team deaths'} value={stats.law_teamkilled}
                         desc="Team deaths suffered as law enforcement"
                     />
                 </Cell>
-                {:else if activeTab == 'Criminals'}
+                {:else if factionTab == 'Criminals'}
                 <Cell span={6}>
                     <Stat name={'Team deaths'} value={stats.crim_teamkilled}
                         desc="Team deaths suffered as criminals"
@@ -404,59 +379,69 @@
             <LayoutGrid>
                 <!-- Shots fired-->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
+                    {#if factionTab == 'Criminals'}
                     <Stat name={'Shots fired'} value={stats.crim_shots_fired} 
                         desc="Shots fired as criminals (melee attacks included)"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                    {:else if factionTab == 'Law Enforcement'}
                     <Stat name={'Shots fired'} value={stats.law_shots_fired} 
                         desc="Shots fired as law enforcement (melee attacks included)"
                     />
                     {:else}
-                    <Stat name={'Shots fired'} value={total_shots_fired} 
+                    <Stat name={'Shots fired'} value={stats.crim_shots_fired + stats.law_shots_fired} 
                         desc="Total shots fired (melee attacks included)"
                     />
                     {/if}
                 </Cell>
                 <!-- Shots hit-->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
+                    {#if factionTab == 'Criminals'}
                     <Stat name={'Shots hit'} value={stats.crim_shots_hit} 
                         desc="Shots hit as criminals (melee attacks included)"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                    {:else if factionTab == 'Law Enforcement'}
                     <Stat name={'Shots hit'} value={stats.law_shots_hit} 
                         desc="Shots hit as law enforcement (melee attacks included)"
                     />
                     {:else}
-                    <Stat name={'Shots hit'} value={total_shots_hit} 
+                    <Stat name={'Shots hit'} value={stats.crim_shots_hit + stats.law_shots_hit} 
                         desc="Total shots hit (melee attacks included)"
                     />
                     {/if}
                 </Cell>
                 <!-- Accuracy -->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
-                    <Stat name={'Accuracy'} value={crim_accuracy} ratio
+                    {#if factionTab == 'Criminals'}
+                    <Stat name={'Accuracy'} 
+                        value={accuracy(stats.crim_shots_fired, stats.crim_shots_hit)}
                         desc="Accuracy as criminals"
+                        ratio
                     />
-                    {:else if activeTab == 'Law Enforcement'}
-                    <Stat name={'Accuracy'} value={law_accuracy} ratio
+                    {:else if factionTab == 'Law Enforcement'}
+                    <Stat name={'Accuracy'} 
+                        value={accuracy(stats.law_shots_fired, stats.law_shots_hit)}
                         desc="Accuracy as law enforcement"
+                        ratio
                     />
                     {:else}
-                    <Stat name={'Accuracy'} value={total_accuracy} ratio
+                    <Stat name={'Accuracy'}
+                        value={
+                            accuracy(
+                                stats.law_shots_fired + stats.crim_shots_fired,
+                                stats.law_shots_hit + stats.crim_shots_hit
+                        )}
                         desc="Total accuracy"
+                        ratio
                     />
                     {/if}
                 </Cell>
                 <!-- Headshots-->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
+                    {#if factionTab == 'Criminals'}
                     <Stat name={'Headshots'} value={stats.crim_headshots}
                         desc="Headshots hit as criminals"
                     />
-                    {:else if activeTab == 'Law Enforcement'}
+                    {:else if factionTab == 'Law Enforcement'}
                     <Stat name={'Headshots'} value={stats.law_headshots}
                         desc="Headshots hit as law enforcement"
                     />
@@ -468,33 +453,49 @@
                 </Cell>
                 <!-- Head/fired rate-->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
-                    <Stat name={'Head/fired'} value={crim_head_to_fired} ratio
+                    {#if factionTab == 'Criminals'}
+                    <Stat name={'Head/fired'} 
+                        value={headRatio(stats.crim_headshots, stats.crim_shots_fired)}
                         desc="Headshots/shots fired ratio as criminals"
+                        ratio
                     />
-                    {:else if activeTab == 'Law Enforcement'}
-                    <Stat name={'Head/fired'} value={law_head_to_fired} ratio
+                    {:else if factionTab == 'Law Enforcement'}
+                    <Stat name={'Head/fired'} 
+                        value={headRatio(stats.law_headshots, stats.law_shots_fired)}
                         desc="Headshots/shots fired ratio as law enforcement"
+                        ratio
                     />
                     {:else}
-                    <Stat name={'Head/fired'} value={total_head_to_fired} ratio
+                    <Stat name={'Head/fired'}
+                        value={headRatio(stats.law_headshots + stats.crim_headshots, stats.law_shots_fired + stats.crim_shots_fired)}
                         desc="Headshots/shots fired ratio"
+                        ratio
                     />
                     {/if}
                 </Cell>
                 <!-- Head/hit rate-->
                 <Cell>
-                    {#if activeTab == 'Criminals'}
-                    <Stat name={'Head/hit'} value={crim_head_to_hit} ratio
+                    {#if factionTab == 'Criminals'}
+                    <Stat name={'Head/hit'} 
+                        value={headRatio(stats.crim_headshots, stats.crim_shots_hit)}
                         desc="Headshots/shots hit ratio as criminals"
+                        ratio
                     />
-                    {:else if activeTab == 'Law Enforcement'}
-                    <Stat name={'Head/hit'} value={law_head_to_hit} ratio
+                    {:else if factionTab == 'Law Enforcement'}
+                    <Stat name={'Head/hit'} 
+                        value={headRatio(stats.law_headshots, stats.law_shots_hit)}
                         desc="Headshots/shots hit ratio as law enforcement"
+                        ratio
                     />
                     {:else}
-                    <Stat name={'Head/hit'} value={total_head_to_hit} ratio
+                    <Stat name={'Head/hit'}
+                        value={
+                            headRatio(
+                                stats.law_headshots + stats.crim_headshots,
+                                stats.law_shots_hit + stats.crim_shots_hit
+                        )}
                         desc="Headshots/shots hit ratio"
+                        ratio
                     />
                     {/if}
                 </Cell>
@@ -521,7 +522,7 @@
             </TabBar>
         </div>
         <!-- Weapon stats -->
-        <WeaponStats {stats} {activeTab} {activeWeaponTab} />
+        <WeaponStats {stats} {factionTab} {activeWeaponTab} />
     </div>
     <!-- Game modes -->
     <div class="flex flex-col font-body text-primary-light dark:text-primary-dark lg:text-4xl mt-5">
@@ -558,8 +559,10 @@
                     />
                 </Cell>
                 <Cell>
-                    <Stat name={'Winrate'} value={total_war_winrate} ratio
+                    <Stat name={'Winrate'}
+                        value={winrateMode(stats.cmn_war_wins, stats.cmn_war_games)}
                         desc="Win percentage in War mode"
+                        ratio
                     />
                 </Cell>
                 {:else if activeGameModeTab == 'Tag'}
@@ -574,8 +577,10 @@
                     />
                 </Cell>
                 <Cell>
-                    <Stat name={'Winrate'} value={total_tag_winrate} ratio
+                    <Stat name={'Winrate'}
+                        value={winrateMode(stats.cmn_tag_wins, stats.cmn_tag_games)}
                         desc="Win percentage in Tag mode"
+                        ratio
                     />
                 </Cell>
                 <Cell span={12}>
@@ -595,8 +600,10 @@
                     />
                 </Cell>
                 <Cell>
-                    <Stat name={'Winrate'} value={total_robbery_winrate} ratio
+                    <Stat name={'Winrate'}
+                        value={winrateMode(stats.cmn_robbery_wins, stats.cmn_robbery_games)}
                         desc="Win percentage in Robbery mode"
+                        ratio
                     />
                 </Cell>
                 <Cell span={12}>
@@ -616,8 +623,10 @@
                     />
                 </Cell>
                 <Cell>
-                    <Stat name={'Winrate'} value={total_raid_winrate} ratio
+                    <Stat name={'Winrate'} 
+                        value={winrateMode(stats.cmn_raid_wins, stats.cmn_raid_games)}
                         desc="Win percentage in Raid mode"
+                        ratio
                     />
                 </Cell>
                 <Cell span={12}>

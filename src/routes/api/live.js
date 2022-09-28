@@ -8,7 +8,7 @@ export async function GET() {
     try {
         const controller = new AbortController()
 
-        // 200ms timeout when the backend api is offline (requests in localhost)
+        // 200ms timeout when the backend api is offline
         const timeoutId = setTimeout(() => controller.abort(), 100);
         players = await fetch(`${liveApiUrl}/players`, { signal: controller.signal });
         players = await players.json();

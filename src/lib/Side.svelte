@@ -2,7 +2,7 @@
     import Tooltip, { Wrapper } from '@smui/tooltip';
 
     // player data
-    export let player;
+    export let stats;
     
     // icon size flag
     export let small = false;   
@@ -10,22 +10,15 @@
 
     // hyphen if draw
     export let hyphened;
-
-    const stats = player.stats;
-    
-    const criminalWins = stats.crim_victories > stats.law_victories;
-    const winsDraw = stats.crim_victories == stats.law_victories;
-    const criminalTime = stats.crim_time > stats.law_time;
-    const timeDraw = stats.crim_time == stats.law_time;
 </script>
 
-{#if winsDraw && timeDraw}
+{#if stats.crim_victories == stats.law_victories && stats.crim_time == stats.law_time}
     {#if hyphened}
     <div class="flex flex-row justify-center items-center pb-[4px]">
     -
     </div>
     {/if}
-{:else if (winsDraw && criminalTime) || (!winsDraw && criminalWins)}
+{:else if (stats.crim_victories == stats.law_victories && stats.crim_time > stats.law_time) || (!(stats.crim_victories == stats.law_victories) && stats.crim_victories > stats.law_victories)}
 <Wrapper>
     <div class="flex flex-row justify-center items-center">
         <img src='/icons/pistol_icon.png'
