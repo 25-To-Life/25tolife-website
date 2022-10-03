@@ -52,6 +52,7 @@
 
 <svelte:head>
     <title>Home | 25 To Life Classic</title>
+    <meta name="description" content="Revival project for 25 To Life online multiplayer on PC and PS2">
 </svelte:head>
 
 <!--Main container-->
