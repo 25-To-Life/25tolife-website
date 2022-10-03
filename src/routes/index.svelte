@@ -53,6 +53,10 @@
 <svelte:head>
     <title>Home | 25 To Life Classic</title>
     <meta name="description" content="Revival project for 25 To Life online multiplayer on PC and PS2">
+    <meta name="og:image" content="/ttlc_logo.png">
+    <meta name="og:image:alt" content="25 To Life Classic logo">
+    <meta name="og:image:width" content="736">
+    <meta name="og:image:height" content="276">
 </svelte:head>
 
 <!--Main container-->

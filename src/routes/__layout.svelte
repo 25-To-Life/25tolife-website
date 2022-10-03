@@ -33,7 +33,7 @@
             <Row>
                 <Section>
                     <a href="/" class="w-1/4 lg:w-1/5 xl:w-1/6 h-auto px-0 sm:px-4 hover:brightness-90">
-                        <img src='/25 logo.png' alt='25 To Life logo'>
+                        <img src='/ttlc_logo.png' alt='25 To Life Classic logo'>
                     </a>
                     <ul id="menu" class="font-header text-xs sm:text-md md:text-lg lg:text-xl xl:text-2xl text-primary-light dark:text-primary-dark">
                         <li class="inline">
