@@ -38,6 +38,10 @@
 
 <svelte:head>
     <title>{title} | 25 To Life Classic</title>
+    <meta name="description" content={"Ranked game statistics for " + title + "."}>
+    <meta name="og:site_name" content="25 To Life Classic">
+    <meta name="og:image" content="/ttlc_logo_white.png">
+    <meta name="og:image:alt" content="25 To Life Classic logo">
 </svelte:head>
 
 {#if player != null}

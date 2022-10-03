@@ -31,6 +31,10 @@
 
 <svelte:head>
     <title>Status | 25 To Life Classic</title>
+    <meta name="description" content="Live status of 25 To Life Classic game servers.">
+    <meta name="og:site_name" content="25 To Life Classic">
+    <meta name="og:image" content="/ttlc_logo_white.png">
+    <meta name="og:image:alt" content="25 To Life Classic logo">
 </svelte:head>
 
 <!--Main container-->
