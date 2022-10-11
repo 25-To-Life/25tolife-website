@@ -67,15 +67,17 @@ npm run dev
 ```
 ### Production
 
-Build the project:
+1. Build the project:
 ```
 npm run build
 ```
-Optionally preview the build:
+2. Move the `.env` file into `build` directory.
+
+3. Optionally preview the build:
 ```
 npm run preview
 ```
-Start in production mode:
+4. Start in production mode:
 ```
 npm run start
 ```
