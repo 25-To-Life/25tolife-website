@@ -72,12 +72,21 @@
     </div>
 
     <!--Download button-->
-    <a href="/install" class="my-10 md:my-6">
-        <button class="font-body transition text-white dark:text-primary-dark text-2xl rounded-md shadow-md
-            bg-accent-primary-light hover:bg-accent-secondary-light dark:bg-accent-primary-dark dark:hover:bg-accent-secondary-dark px-4 pb-2 pt-2">
-            Install now
-        </button>
-    </a>
+    <div class="flex flex-row my-10 md:my-6">
+        <a href="phoenixgame://startGame/Ttl&ignore&ignore" class="w-full">
+            <button class="font-body transition text-white dark:text-primary-dark text-2xl rounded-md shadow-md
+                bg-accent-primary-light hover:bg-accent-secondary-light dark:bg-accent-primary-dark dark:hover:bg-accent-secondary-dark px-4 pb-2 pt-2">
+                Play now
+            </button>
+        </a>
+        <a href="/install" class="ml-2">
+            <button class="font-body transition text-black dark:text-primary-dark text-2xl rounded-md shadow-md
+            bg-[#be8d4a] hover:bg-[#9e7131] dark:bg-[#333] dark:hover:bg-[#666] px-4 pb-2 pt-2">
+                Install
+            </button>
+        </a>
+    </div>
+    
     
     <!-- Carousel -->
     <div class="w-2/3 xl:mt-4 mb-[80px] sm:mb-[80px] md:mb-[80px] lg:mb-[40px] xl:mb-[15px] 2xl:mb-[10px] 

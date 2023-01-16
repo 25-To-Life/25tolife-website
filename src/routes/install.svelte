@@ -20,6 +20,7 @@
     </div>
     <div class="flex flex-col justify-center text-center w-3/4 xl:w-1/2 max-w-3/4 mb-6">
         <p class="text-lg md:text-xl lg:text-2xl my-4 md:my-6 xl:my-10">To install the game and get ready to play follow the steps below.</p>
+        <h2 class="font-header text-4xl sm:text-5xl md:text-6xl xl:text-6xl mb-4 md:mb-6 xl:mb-10">PC</h2>
         <div class="text-center">
             <Accordion>
                 <Panel color="primary">
@@ -28,11 +29,11 @@
                     </Header>
                     <Content class="text-justify items-center">
                         <div class="flex flex-row items-center mb-2">
-                            <p class="w-full ml-6 mr-4">Phoenix Launcher is required to download the game - download and run the installer.
+                            <p class="w-full ml-6 mr-4">To install <i>25 To Life</i> download <b>Phoenix Launcher</b>.
                                 We do not support your own copy of the game. The launcher requires Windows 7 or newer.
                             </p>
                             <div class="flex flex-row justify-center items-center w-1/3 mx-4 sm:mx-1">
-                                <a href="https://cdn.phoenixnetwork.net/updater/versions/client/Launcher/PhoenixInstaller.exe" class="my-1 md:my-2 items-end">
+                                <a href="https://cdn.phoenixnetwork.net/updater/PhoenixLauncherInstaller.exe" class="my-1 md:my-2 items-end">
                                     <button class="font-body transition text-white dark:text-primary-dark sm:text-xl bg-accent-primary-light hover:bg-accent-secondary-light
                                         dark:bg-accent-primary-dark dark:hover:bg-accent-secondary-dark px-4 py-2 rounded-md shadow-md">
                                         Download
@@ -44,19 +45,29 @@
                 </Panel>
                 <Panel color="primary">
                     <Header>
-                        <b>Register Phoenix account</b>
+                        <b>Run the launcher</b>
                     </Header>
                     <Content>
-                        <div class="flex flex-col justify-center items-center text-justify mb-2 mx-4">
-                            <div class="w-full max-w-[80%] justify-start text-justify ">
-                                <p class="w-auto mx-4">
-                                    Create your Phoenix account using the launcher and log in afterwards.
-                                </p>
+                        <div class="flex flex-row justify-center items-center text-justify mb-2 mx-4">
+                            <div class="flex flex-col">
+                                <div class="w-full justify-start text-justify ">
+                                    <p class="w-auto mx-4">
+                                        Start the launcher from this website using <b>Play now</b> button.
+                                    </p>
+                                </div>
+                                <div class="w-full text-justify ">
+                                    <p class="w-auto mx-4 mt-2 ">
+                                        The browser will ask you for permissions, you need to allow it to run Phoenix Launcher application.
+                                    </p>
+                                </div>
                             </div>
-                            <div class="w-full max-w-[80%] text-justify ">
-                                <p class="w-auto mx-4 mt-2 ">
-                                    This account is <b>not</b> your in-game account.
-                                </p>
+                            <div class="flex flex-row justify-center items-center w-1/3 mx-4 sm:mx-1">
+                                <a href="phoenixgame://startGame/Ttl&ignore&ignore" class="my-1 md:my-2 items-end">
+                                    <button class="font-body transition text-white dark:text-primary-dark sm:text-xl bg-accent-primary-light hover:bg-accent-secondary-light
+                                        dark:bg-accent-primary-dark dark:hover:bg-accent-secondary-dark px-4 py-2 rounded-md shadow-md">
+                                        Play now
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         
@@ -68,14 +79,15 @@
                     </Header>
                     <Content>
                         <div class="flex flex-col justify-center items-center text-justify mb-2">
-                            <p class="w-auto max-w-[75%] mx-4">
-                                After you log into the launcher, go to <u>Games/25 To Life</u> tab and click 'Update' to download and install the game.
+                            <p class="w-auto mx-4">
+                                The launcher will download the game files on its first run. 
                             </p>
-                            <div class="w-full max-w-[75%] justify-start mx-4">
-                                <p class="w-auto mt-2">
-                                    The game's installation path is available in <u>Settings</u> tab.
-                                </p>
-                            </div>
+                            <p class="w-auto mx-4 mt-2">
+                                The game will be installed at <i>Phoenix Launcher/Phoenix Games/Ttl</i>.
+                            </p>
+                            <p class="w-auto mx-4 mt-2">
+                                <b>Before you start playing</b> make sure you finish the steps below.
+                            </p>
                         </div>
                     </Content>
                 </Panel>

@@ -5,8 +5,7 @@
         {
             question: 'Can I play now?',
             answer: [
-                'Not yet, but pretty soon.',
-                'Currently we\'re preparing our services for short closed testing before we go live into public beta.'
+                'Yes. Both on PC and PS2. Welcome back.',
             ]
         },
         {
@@ -65,7 +64,8 @@
             question: 'Accounts',
             answer: [
                 'We fully support in-game account management. You can use the original create, edit, recover and delete account features.',
-                'Deleting your account from the game only deletes it from your local profile. If you want to delete it permanently, request us to do so on Discord. You have the full right to manage your data. We do not process, sell or publish your personal data. For details read our Terms of Use.',
+                'Deleting your account from the game only deletes it from your local profile. If you want to delete it permanently, request us to do so on Discord.',
+                'You need not supply your real personal data. We do not process, sell or publish the data collected by 25 To Life Classic services. For details read our Terms of Use.',
                 'Recover option only lets you pull your account data from the server and save it locally in case you don\'t have it saved. In case you forgot your password and would like to change it, message an administrator on Discord.',
             ]
         },
@@ -90,9 +90,9 @@
         {
             question: 'Clans',
             answer: [
-                'Due to the game crashing on clans screen we disabled the clan menu.',
+                'Due to the game crashing on clans screen we disabled the clan menu for PC.',
                 'We do support in-game clan tags though. Request yours on Discord after you make an account.',
-                'It is also possible to send clan invitations but for obvious reasons they cannot be accepted.'
+                'We aim to support clans for PS2 version of the game.'
             ]
         },
         {
