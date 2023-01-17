@@ -137,6 +137,9 @@
             <h3 class="font-header text-center text-lg md:text-xl lg:text-4xl mt-3">
                 Ozzymer
             </h3>
+            <h3 class="font-header text-center text-lg md:text-xl lg:text-4xl mt-3">
+                Cristian
+            </h3>
         </div>
     </div>
 </div>

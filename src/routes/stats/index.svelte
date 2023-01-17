@@ -1,5 +1,4 @@
 <script context="module">
-    
     export async function load({ fetch }) {
         // Fetch sorted players from /api/players
         let res = await fetch('api/players');
@@ -7,11 +6,11 @@
 
         return {
             props: {
-                players,
+                pcPlayers: players.pc,
+                ps2Players: players.ps2,
             }
         };
     }
-    
 </script>
 
 <script>
@@ -19,16 +18,17 @@
     import LayoutGrid, { Cell } from '@smui/layout-grid';
     import TopPlayerCard from '../../lib/TopPlayerCard.svelte';
 
-    // UI states
-
     // player data
-    export let players;
+    export let pcPlayers;
+    export let ps2Players;
 
     // player names for autocompletion
     let autocompleted = [];
 
-    // player set is the same on PC and PS2
-    players.pc.map(player => {
+    pcPlayers.map(player => {
+        autocompleted.push(player.username);
+    });
+    ps2Players.map(player => {
         autocompleted.push(player.username);
     });
     autocompleted.sort();
@@ -37,10 +37,10 @@
     let input = '';
 
     // top 9 pc players
-    let topPcPlayers = players.pc.slice(0,3);
+    let topPcPlayers = pcPlayers.slice(0,3);
 
     // top 9 ps2 players
-    let topPs2Players = players.ps2.slice(0,3);
+    let topPs2Players = ps2Players.slice(0,3);
 
     // Handlers
     function handleSearch() {

@@ -7,7 +7,8 @@
 
         return {
             props: {
-                players,
+                pcPlayers: players.pc,
+                ps2Players: players.ps2,
             }
         };
     }
@@ -26,7 +27,8 @@
     import Side from '../lib/Side.svelte';
     
     // player list
-    export let players;
+    export let pcPlayers;
+    export let ps2Players;
 </script>
 
 <svelte:head>
@@ -83,7 +85,7 @@
                     </Row>
                 </Head>
                 <Body>
-                    {#each players.pc as player, i}
+                    {#each pcPlayers as player, i}
                         <Row>
                             <Cell>
                                 <Rank rank={i+1} />
@@ -139,7 +141,7 @@
                     </Row>
                 </Head>
                 <Body>
-                    {#each players.ps2 as player, i}
+                    {#each ps2Players as player, i}
                         <Row>
                             <Cell>
                                 <Rank rank={i+1} />
