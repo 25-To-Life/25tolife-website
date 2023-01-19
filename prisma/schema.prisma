@@ -225,3 +225,25 @@ model stats_ps2 {
   stat86               Int?
   stat87               Int?
 }
+
+// 'clan_members' SQLite model
+model clan_members {
+  id                   Int    @id @unique
+  clan                 clans  @relation(fields: [clan_id], references: [id])
+  clan_id              Int
+  pid                  Int
+  player_name          String
+  is_officer           Int
+}
+
+// 'clans' SQLite model
+model clans {
+  id                   Int    @id @unique
+  members              clan_members[]
+  abbr                 String
+  name                 String
+  leader               String
+  rating               Int
+  kills                Int
+  notice               String
+}
