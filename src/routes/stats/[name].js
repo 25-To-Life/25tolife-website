@@ -6,14 +6,17 @@ export async function GET({ params }) {
     // get player data
     const name = params.name;
     var player = await prisma.users.findFirst({
+        select: {
+            pid: true,
+            username: true,
+            clan_tag: true,
+            stats_pc: true,
+            stats_ps2: true,
+            friends: false,
+        },
         where: {
             username: name
         },
-        include: {
-            stats_pc: true,
-            stats_ps2: true,
-            friends: false
-        }
     });
     // player not found - the error is handled by the page
     if(player == null) {

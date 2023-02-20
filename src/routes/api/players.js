@@ -14,10 +14,10 @@ export async function GET() {
     });
 
     var playersPC = await prisma.users.findMany({
-        orderBy: { 
-            stats_pc: {ranking: 'desc'} 
-        },
-        include: {
+        select: {
+            pid: true,
+            username: true,
+            clan_tag: true,
             stats_pc: {
                 select: {
                     ranking: true,
@@ -31,7 +31,10 @@ export async function GET() {
             },
             stats_ps2: false,
             friends: false,
-        }
+        },
+        orderBy: { 
+            stats_pc: {ranking: 'desc'} 
+        },
     });
     playersPC = playersPC.filter(p =>
         p.stats_pc.law_time + p.stats_pc.crim_time > 0
@@ -49,10 +52,10 @@ export async function GET() {
     playersPC = membered;
 
     var playersPS2 = await prisma.users.findMany({
-        orderBy: { 
-            stats_ps2: {ranking: 'desc'}
-        },
-        include: {
+        select: {
+            pid: true,
+            username: true,
+            clan_tag: true,
             stats_pc: false,
             stats_ps2: {
                 select: {
@@ -66,7 +69,10 @@ export async function GET() {
                 }
             },
             friends: false
-        }
+        },
+        orderBy: { 
+            stats_ps2: {ranking: 'desc'}
+        },
     });
     playersPS2 = playersPS2.filter(p =>
         p.stats_ps2.law_time + p.stats_ps2.crim_time > 0

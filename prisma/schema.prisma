@@ -15,10 +15,12 @@ model users {
   id            Int      @id @unique
   pid           Int      @unique
   username      String   @unique
+  password      String
   clan_tag      String?
   stats_pc      stats_pc?
   stats_ps2     stats_ps2?
   friends       friends[]
+  perms         perms?
 }
 
 // 'friends' SQLite model
@@ -35,7 +37,8 @@ model friends {
 
 // 'message' SQLite model
 model message {
-  msg String @unique
+  language  String @unique
+  msg       String @unique
 }
 
 // 'stats_pc' SQLite model
@@ -246,4 +249,12 @@ model clans {
   rating               Int
   kills                Int
   notice               String
+}
+
+// 'perms' SQLite model (for website only)
+model perms {
+  id          Int     @id @unique
+  pid         Int     @unique
+  role        String
+  user        users   @relation(fields: [pid], references: [pid])
 }
