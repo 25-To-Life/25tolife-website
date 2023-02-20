@@ -8,6 +8,12 @@ export async function PUT({ request }) {
   const msg = body.message;
   let username = request.headers.get('Username');
   let pass = request.headers.get('Password');
+
+  if(msg == null || username == null || pass == null) {
+    return {
+      status: 400
+    }
+  }
   
   const user = await prisma.users.findFirst({
     select: {
