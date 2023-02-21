@@ -4,7 +4,16 @@ import { hash } from '../../lib/utils';
 const prisma = new PrismaClient()
 
 export async function PUT({ request }) {
-  const body = await request.json();
+  let body;
+  try {
+    body = await request.json();
+  }
+  catch {
+    console.error("[API] Invalid /message payload, cannot parse as JSON");
+    return {
+      status: 400      
+    }
+  }
   const msg = body.message;
   let username = request.headers.get('Username');
   let pass = request.headers.get('Password');
