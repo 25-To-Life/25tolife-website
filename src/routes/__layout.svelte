@@ -135,7 +135,7 @@
             </a>
             <div class="flex flex-col font-body text-xs sm:text-base">
                 <h1>© Phoenix Network 2022</h1>
-                <p class="pt-1">Phoenix Network Ltd. is not affiliated with or endorsed by Eidos Interactive, Avalanche Software, Square Enix, Embracer Group or any of their subsidiaries or affiliates.</p>
+                <p class="pt-1">Phoenix Network Inc. is not affiliated with or endorsed by Eidos Interactive, Avalanche Software, Square Enix, Embracer Group or any of their subsidiaries or affiliates.</p>
                 <p class="pt-1">All product and company names are the registered trademarks of their original owners.</p>
                 <p class="pt-1">The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holders.</p>
             </div>
